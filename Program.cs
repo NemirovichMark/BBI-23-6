@@ -60,9 +60,23 @@ namespace ConsoleApp1
 #region уровень 1 задача 2
         	double sum = 0; 
         	for (double i = 1; i <= 10; i += 1) 
+            {
             	sum = sum + (1 / i); 
+            }
         	Console.WriteLine(sum); 
 #endregion уровень 1 задача 2
+
+#region уровень 1 задача 6
+            double number = 0; 
+        	for (double i = -4; i <= 4; i += 0.5) 
+        	{ 
+            	number = (Math.Pow(0.5 * i, 2) - 7 * i); 
+            	Console.WriteLine($"{number} {i}"); 
+            }
+#endregion уровень 1 задача 6
+
+
+
 
 }
 }
