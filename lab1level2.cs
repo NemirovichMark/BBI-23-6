@@ -4,7 +4,7 @@ namespace ConsoleApp1
 {
     internal class Program
     {
-        #region1
+        # region1
         double x = 0.5;
         double epsilon = 0.0001;
         double sum = 0;
@@ -15,7 +15,7 @@ namespace ConsoleApp1
         {
             sum += term;
             n++;
-            term = Math.Cos(n * x) / (n * n);
+            term = Math.Cos(n* x) / (n* n);
         }
 
         Console.WriteLine(sum);
@@ -23,21 +23,18 @@ namespace ConsoleApp1
 
         #region2
         int p = 1;
-        for (int x = 1; x< 1000; x += 3)
-        {
-            if (p > 30000)
+            for (int x = 1; x< 1000; x += 3)
             {
-                Console.WriteLine(x - 3);
-                Console.WriteLine(p);
-                Console.WriteLine(p / (x - 3));
-                break;
-            }
-            else p = p * x;
-
-        }
-        Console.WriteLine(p);
-        #endregion
-
+                if (p > 30000)
+                {
+                    Console.WriteLine(x - 3);
+                    Console.WriteLine(p);
+                    Console.WriteLine(p / (x - 3));
+                    break;
+                }
+                else p = p * x;
+             }
+         #endregion
 
         #region3
         int s3 = 0, n3 = 0, m3;
@@ -69,33 +66,22 @@ namespace ConsoleApp1
                 Console.WriteLine(last_sum4);
                 break;
             }
-
+        }
         #endregion
 
         # region5
-        double res = 0;
-        int n = Convert.ToInt32(Console.ReadLine());
-        int m = Convert.ToInt32(Console.ReadLine());
-
+        int n = Convert.ToInt32(Console.ReadLine()), m = Convert.ToInt32(Console.ReadLine());
+        int rez = 0;
         while (n >= m)
         {
-            res += 1;
-            n -= m;
+            rez += 1;
+            n = n - m;
         }
-        Console.WriteLine(res);
-        if (n < m)
-        {
-            if (n > 0)
-            {
-                Console.WriteLine(n);
-            }
-            if (n == 0)
-            {
-                Console.WriteLine(0);
-            }
+        Console.WriteLine($"Частное: {rez}");
+        Console.WriteLine($"Остаток: {n}");
         #endregion
 
-        #region 6            
+        #region6
         int n = 1;
         int time = 0;
 
@@ -118,31 +104,50 @@ namespace ConsoleApp1
         #endregion
 
 
-        #region 7           
-        double r = 10;
-        double sum = 10;
-        int kolvo = 1;
-        for (kolvo = 1; sum < 100;)
+        # region7
+        //a
+        double s = 10, d = 10;
+        for (int i = 2; i < 8; i++)
         {
-            r = r + r * 0.1;
-            sum += r;
-            kolvo += 1;
+            d = d * 1.1;
+            s = s + d;
+
         }
-        Console.WriteLine(kolvo);
+        Console.WriteLine(s);
+
+
+        //b
+        double s2 = 10, d2 = 10, k = 1;
+        while (s2 < 100)
+        {
+            d2 = d2 * 1.1;
+            s2 = s2 + d2;
+            k += 1;
+        }
+        Console.WriteLine(k);
+
+
+
+        //c           
+        double d3 = 10, k3 = 1;
+        while (d3 < 20)
+        {
+            d3 = d3 * 1.1;
+            Console.WriteLine(d3);
+            k3 += 1;
+        }
+        Console.WriteLine(k3);
         #endregion
 
-
-        #region 8             
-        double s = 10000;
-        int d = 0;
-        double r = 0.08;
-        double s1 = s * 2;
-        while (s < s1)
+        # region8
+        double s = 10000, m = 1;
+        while (s < 20000)
         {
-            s += s * r;
-            d++;
+            s = s * 1.08;
+            m += 1;
+            Console.WriteLine(s);
         }
-        Console.WriteLine(d);
+        Console.WriteLine(m);
         #endregion
 
     }
