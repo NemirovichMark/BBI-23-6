@@ -82,16 +82,16 @@ namespace ConsoleApp1
             res += 1;
             n -= m;
         }
-        Console.WriteLine($"частное: {res}");
+        Console.WriteLine(res);
         if (n < m)
         {
             if (n > 0)
             {
-                Console.WriteLine($"остаток:{n}");
+                Console.WriteLine(n);
             }
             if (n == 0)
             {
-                Console.WriteLine("остаток: 0");
+                Console.WriteLine(0);
             }
         #endregion
 
@@ -113,7 +113,7 @@ namespace ConsoleApp1
             }
         }
 
-        Console.WriteLine("¬рем€: " + time);
+        Console.WriteLine(time);
         Console.ReadKey();
         #endregion
 
@@ -142,7 +142,7 @@ namespace ConsoleApp1
             s += s * r;
             d++;
         }
-        Console.WriteLine($"—умма удвоитс€ через {d} мес€цев.");
+        Console.WriteLine(d);
         #endregion
 
     }
