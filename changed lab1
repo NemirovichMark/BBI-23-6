@@ -1,0 +1,134 @@
+//1_4
+using System;
+
+public class Program
+{
+    public static void Main(string[] args)
+
+    {
+        double s4 = 0;
+        int x = Int32.Parse(Console.ReadLine());
+        int n = 0;
+        for (int i = 1; i <= 9; i++)
+        {
+            int num_n = 1;
+            for (int j = 1; j <= n; j++)
+            {
+                num_n *= x;
+            }
+            s4 += Math.Cos(x * i) / num_n;
+            n += 1;
+        }
+        Console.WriteLine(s4);
+    }
+}
+//1_5
+using System;
+
+public class Program
+{
+    public static void Main(string[] args)
+
+    {
+        double s5 = 0;
+        int p = Int32.Parse(Console.ReadLine()), h = Int32.Parse(Console.ReadLine());
+        for (int i = 0; i <= 9; i++)
+        {
+            s5 += (p + h * i) * (p + h * i);
+        }
+        Console.WriteLine(s5);
+
+    }
+}
+//1_9
+using System;
+
+public class Program
+{
+    static int fact(int n)
+    {
+        int f = 1;
+        for (int i = 2; i <= n; ++i)
+        {
+            f *= i;
+        }
+        return f;
+    }
+
+
+    public static void Main(string[] args)
+
+    {
+        double s8 = 0;
+        for (int i = 1; i <= 6; i++)
+        {
+            int otv = 1;
+            for (int j = 0; j < i; j++)
+            {
+                otv *= -5;
+            }
+            s8 += otv / fact(i);
+        }
+        Console.WriteLine(s8);
+    }
+}
+//1_12
+using System;
+
+public class Program
+{
+  
+
+
+    public static void Main(string[] args)
+
+    {
+        double s10 = 0;
+        int x3 = Int32.Parse(Console.ReadLine());
+        for (int i = 0; i <= 10; i++)
+        {
+            double sq = 1;
+            for (int j = 0; j < i; j++)
+            {
+                sq *= x3;
+            }
+            s10 += 1 / sq;
+        }
+        Console.WriteLine(s10);
+
+    }
+}
+//2_4
+using System;
+
+public class Program
+{
+    public static void Main(string[] args)
+
+    {
+        double x = 0.9;
+        double last_sum = 0;
+        double sum = 0;
+        for (int n = 1; n <= 10000; n++)
+        {
+            double sq = 1;
+            for (int j = 0; j < n * 2; j++)
+            {
+                sq *= x;
+            }
+            sum += sq;
+            if (sq >= 0.0001)
+            {
+                last_sum = sum;
+            }
+
+            if (sq < 0.0001)
+            {
+                Console.WriteLine(last_sum);
+                break;
+            }
+
+
+        }
+    }
+}
