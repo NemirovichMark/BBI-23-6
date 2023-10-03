@@ -49,7 +49,12 @@ namespace ConsoleApp1
             int x = Int32.Parse(Console.ReadLine());
             for (int i = 1; i <= 9; i++)
             {
-                s4 += Math.Cos(x*i)/Math.Pow(x,i-1);
+                double st = 1;
+                for (int j=1; j <= (i-1); j++)
+                {
+                    st *= x
+                }
+                s4 += Math.Cos(x*i)/st;
             }
             Console.WriteLine(s4);
             #endregion
@@ -59,7 +64,8 @@ namespace ConsoleApp1
             int p = Int32.Parse(Console.ReadLine()), h = Int32.Parse(Console.ReadLine());
             for (int i = 0; i <= 9; i++)
             {
-                s5 += Math.Pow((p + h*i),2);
+                
+                s5 += (p + h*i)* (p + h * i);
             }
             Console.WriteLine(s5);
             #endregion
@@ -100,7 +106,13 @@ namespace ConsoleApp1
             double s8 = 0;
             for (int i = 1; i <= 6; i++)
             {
-                s8 += (Math.Pow(-1, i) * Math.Pow(5, i)) / fact(i);
+                double st1 = 1, st2=1;
+                for (int j = 1; j <= i; j++)
+                {
+                    st1 *= -1
+                    st2 *= 5
+                }
+                s8 += (st1 * st2) / fact(i);
             }
             Console.WriteLine(s8);
             #endregion
@@ -134,7 +146,12 @@ namespace ConsoleApp1
             int x3 = Int32.Parse(Console.ReadLine());
             for (int i = 0; i <= 10; i++)
             {
-                s10 += 1 / Math.Pow(x3, i);
+                double st=1;
+                for (int j = 1; j <= i; j++)
+                {
+                    st *= x3
+                }
+                s10 += 1 / st;
             }
             Console.WriteLine(s10);
             #endregion

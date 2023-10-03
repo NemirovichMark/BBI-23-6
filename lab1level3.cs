@@ -4,16 +4,6 @@ namespace ConsoleApp1
 {
     internal class Program
     {
-        public static int Fac(int a)
-        {
-            int s = 1;
-            for (int i = 1; i <= a; i++)
-            {
-                s *= i;
-            }
-            return s;
-        }
-
 
         static void Main(string[] args)
         {
@@ -23,7 +13,13 @@ namespace ConsoleApp1
             double x = a;
             while (x <= b)
             {
-                double now = Math.Pow(x, 2 * i) / Fac(2 * i);
+                double ot = 1, st=1;
+                for (j = 1; j <= (2 * i); ++j) {
+                    ot *= j;
+                    st *= x;
+                }
+
+                double now = st / ot;
                 if (Math.Abs(now) < minx)
                 {
                     y = (Math.Pow(Math.E, x) + Math.Pow(Math.E, -x)) / 2;

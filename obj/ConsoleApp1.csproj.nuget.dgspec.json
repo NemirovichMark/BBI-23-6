@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADM\\Desktop\\GitHub\\ConsoleApp1.csproj": {}
+    "C:\\Users\\ADM\\Desktop\\GidHub3\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADM\\Desktop\\GitHub\\ConsoleApp1.csproj": {
+    "C:\\Users\\ADM\\Desktop\\GidHub3\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADM\\Desktop\\GitHub\\ConsoleApp1.csproj",
+        "projectUniqueName": "C:\\Users\\ADM\\Desktop\\GidHub3\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "C:\\Users\\ADM\\Desktop\\GitHub\\ConsoleApp1.csproj",
+        "projectPath": "C:\\Users\\ADM\\Desktop\\GidHub3\\ConsoleApp1.csproj",
         "packagesPath": "C:\\Users\\ADM\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADM\\Desktop\\GitHub\\obj\\",
+        "outputPath": "C:\\Users\\ADM\\Desktop\\GidHub3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADM\\AppData\\Roaming\\NuGet\\NuGet.Config",

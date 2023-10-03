@@ -55,13 +55,18 @@ namespace ConsoleApp1
         double last_sum4 = 0;
         for (int n4 = 1; n4 <= 10000; n4++)
         {
-            sum += Math.Pow(x4, n4 * 2);
-            if (Math.Pow(x4, n4 * 2) >= 0.0001)
+            double st = 1;
+            for (int j = 1; j <= (n4*2); j++)
+            {
+                st *= x4
+             }
+            sum += st;
+            if (st >= 0.0001)
             {
                 last_sum4 = sum4;
             }
 
-            if (Math.Pow(x4, n4 * 2) < 0.0001)
+            if (st < 0.0001)
             {
                 Console.WriteLine(last_sum4);
                 break;
