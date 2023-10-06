@@ -176,14 +176,13 @@ namespace ConsoleApp1
 
 
             #region 14
-            int a = 1, b = 1, c;
+            int a = 1, b = 1;
             Console.WriteLine(a);
             Console.WriteLine(b);
             for (int i=1; i <=6; i++)
             {
-                c = a + b;
-                Console.WriteLine(c);
-                a = b; b = c;
+                Console.WriteLine(a + b);
+                a = b; b = a + b;
             }
             #endregion
 
