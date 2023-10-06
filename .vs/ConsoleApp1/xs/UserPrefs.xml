@@ -1,26 +1,28 @@
-﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{606C5446-FB9B-489E-AA24-662607423256}|Default">
-  <MonoDevelop.Ide.ItemProperties.ConsoleApp1 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+﻿<Properties StartupConfiguration="{606C5446-FB9B-489E-AA24-662607423256}|Default" GitUserInfo="UsingGIT">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Lab1_lvl1.cs">
     <Files>
-      <File FileName="Program.cs" Line="17" Column="34" />
+      <File FileName="Program.cs" Line="18" Column="1" />
       <File FileName="obj/project.assets.json" />
+      <File FileName="Lab1_lvl1.cs" Line="27" Column="23" />
+      <File FileName="Lab1_lvl2.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ConsoleApp1">
             <Node name="ConsoleApp1">
-              <Node name="Program.cs" selected="True" />
+              <Node name="Lab1_lvl1.cs" selected="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.ConsoleApp1 PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
