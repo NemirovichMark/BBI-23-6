@@ -8,9 +8,8 @@ namespace ConsoleApp1
         {
             #region
             double s = 0;
-            int p = Int32.Parse(Console.ReadLine());
-            int h = Int32.Parse(Console.ReadLine());
-           
+            hgyy
+
             #endregion
         }
     }
