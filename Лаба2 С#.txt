@@ -57,11 +57,13 @@ namespace ConsoleApp2
             int b = Convert.ToInt32(Console.ReadLine());
             if (a > 0)
             {
-                Console.WriteLine(Math.Max(a, b));
+		if (a > b) Console.WriteLine(a);
+		else Console.WriteLine(b);
             }
             else
             {
-                Console.WriteLine(Math.Min(a, b));
+		if (a < b) Console.WriteLine(a);
+		else Console.WriteLine(b);
             }
             
             //4
@@ -75,8 +77,8 @@ namespace ConsoleApp2
             
             double r = Convert.ToDouble(Console.ReadLine());
             double s = Convert.ToDouble(Console.ReadLine());
-            double a = Math.Sqrt(r) / 2;
-            double b = Math.Sqrt(s / Math.PI);
+            double b = Math.Sqrt(r) / 2;
+            double a = Math.Sqrt(s / Math.PI);
             if(a >= b)
             {
                 Console.WriteLine("Yes");
@@ -130,7 +132,7 @@ namespace ConsoleApp2
             int s = 0;
             for(int i = 0; i < n; ++i)
             {
-                s += Convert.ToInt32(Console.ReadLine());
+                s += Math.Max(Convert.ToInt32(Console.ReadLine()), 0);
             }
             Console.WriteLine((double)s/n);
             Console.ReadKey();
@@ -142,7 +144,7 @@ namespace ConsoleApp2
             for(int i = 0; i < n; i++)
             {
                 int x = Convert.ToInt32(Console.ReadLine());
-                if (x < 30)
+                if (x < 30 && x > 0)
                 {
                     s += 0.2;
                 }
@@ -154,10 +156,11 @@ namespace ConsoleApp2
             int n = Convert.ToInt32(Console.ReadLine());
             double norma = Convert.ToDouble(Console.ReadLine());
             int ans = 0;
-            for(int i = 0; i < n; i++)
+	    if (norma < 0) return 0;
+	    for(int i = 0; i < n; i++)
             {
                 double x = Convert.ToDouble(Console.ReadLine());
-                if (x <= norma)
+                if (x <= norma && x > 0)
                 {
                     ++ans;
                 }
@@ -171,7 +174,7 @@ namespace ConsoleApp2
             for(int i = 0; i < n; i++)
             {
                 double x = Convert.ToDouble((Console.ReadLine()));
-                mini = Math.Min(mini, x);
+                if (x > 0) mini = Math.Min(mini, x);
             }
             Console.WriteLine(mini);
             
@@ -234,6 +237,7 @@ namespace ConsoleApp2
             
             int n = Convert.ToInt32(Console.ReadLine());
             int ans = 0;
+    	    int ans2 = 0;
             for(int i = 0; i < n; ++i)
             {
                 double x = Convert.ToDouble(Console.ReadLine());
@@ -250,7 +254,7 @@ namespace ConsoleApp2
                 else if (x <= 0 && y <= 0)
                 {
                     Console.WriteLine(3);
-                    ans++;
+                    ans2++;
                 }
                 else
                 {
@@ -258,7 +262,7 @@ namespace ConsoleApp2
                 }
             }
             Console.WriteLine(ans);
-            
+            Console.WriteLine(ans2);
             //8
             
             int n = Convert.ToInt32(Console.ReadLine());
