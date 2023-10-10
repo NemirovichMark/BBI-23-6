@@ -15,29 +15,23 @@ public class Lab1.3.1
 
     {
         double s = 0;
-        double eps = 0.0001;
-        double a = 0.1;
-        double b = 1;
-        double h = 0.1;
+        double a = Math.PI / 5;
+        double b = Math.PI;
+        double h = Math.PI / 25;
         double x = a;
-        int i = 0;
-        double y;
+        int i = 1;
         while (true)
         {
-            double now = ((2 * i + 1) * Math.Pow(x, 2 * i) / fact(i));
-            if (now < eps)
+            if (Math.Abs(pow(-1, i) * Math.Cos(i * x) / pow(i, 2)) < 0.0001 || x > b)
             {
-                y = (1 + 2 * x * x) * Math.Pow(Math.E, x * x);
                 break;
             }
-            else
-            {
-                s += now;
-            }
-            i++;
+            s += pow(-1, i) * Math.Cos(i * x) / pow(i, 2);
+            Console.Write(s + " " + (3 * pow(x, 2) - pow(Math.PI, 2)) / 12);
+            Console.WriteLine();
             x += h;
+            ++i;
         }
-        Console.WriteLine(y);
-        Console.WriteLine(s);
+        Console.ReadKey();
     }
 }
