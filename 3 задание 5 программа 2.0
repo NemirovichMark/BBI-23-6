@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _3_задание_5_программа_2._0
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double a = Math.PI / 5;
+            double b = Math.PI;
+            double h = Math.PI / 25;
+            double sum = 0;
+            double y = 0;
+            double last_number = 0;
+            double sign = 1;
+
+            for (int i = 1; i < 10000; i++)
+            {
+                for (double x = a; x <= b; x += h)
+                {
+                    sum += sign * Math.Cos(i * x) / Math.Pow(i, 2);
+                    y = (Math.Pow(x, 2) - Math.Pow(Math.PI, 2) / 2) / 4;
+                    Console.WriteLine($"{sum} {y}");
+                    last_number = sign * Math.Cos(i * x) / Math.Pow(i, 2);
+                }
+
+                sign = -sign;
+
+                if (Math.Abs(last_number) < 0.0001)
+                {
+                    break;
+                }
+            }
+        }
+    }
+}
