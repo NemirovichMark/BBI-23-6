@@ -99,9 +99,8 @@ namespace ConsoleApp7
                 double x, y; // координаты точки
 
                 Console.Write($"Введите координаты {i + 1}-ой точки (через пробел): ");
-                string[] input = Console.ReadLine().Split();
-                x = double.Parse(input[0]);
-                y = double.Parse(input[1]);
+                x = Convert.ToDouble(Console.ReadLine());
+                y = Convert.ToDouble(Console.ReadLine());
 
                 if (y >= 0 && y <= Math.Sin(x)) // проверка принадлежности фигуре
                 {
@@ -118,7 +117,10 @@ namespace ConsoleApp7
             for (int i = 1; i <= n3; i++)
             {
                 double time = Convert.ToDouble(Console.ReadLine());
-                mintime = Math.Min(time, mintime);
+                if (time < mintime)
+                {
+                    mintime = time;
+                }
 
             }
             Console.WriteLine(mintime);
