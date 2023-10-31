@@ -1,43 +1,43 @@
 using System;
 
- public class KontrolWork
+namespace ConsoleApp1
 {
-    public static void Main(string[] args)
-
+    internal class Program2
     {
-        string N = "";
-        int uchastniki = 0;
-        while (N != "stop")
+        static void Main(string[] args)
         {
-            ++uchastniki;
-            N = (Console.ReadLine());
-        }
-        double norma = Convert.ToDouble(Console.ReadLine());
-        int count_proshli = 0;
-        int count_neproshli = 0;
-        int count_soshli = 0;
-        double ans = 0;
-        for (int i = 0; i < uchastniki; i++)
-        {
-            string result = Console.ReadLine();
-            if (result == "-" || result == " ")
+           
+            double norma = Convert.ToDouble(Console.ReadLine());
+            string res = Console.ReadLine();
+            int count1 = 0;
+            int count2 = 0;
+            int count3 = 0;
+
+            double result = 0;
+            while (res != "stop")
             {
-                ++count_soshli;
-            }
-            else
-            {
-                ans = Convert.ToDouble(result);
-                if (ans >= norma)
+                if (res == "-" || res == " ")
                 {
-                    ++count_proshli;
+                    ++count3;
                 }
-                else if (ans < norma)
+                else
                 {
-                    ++count_neproshli;
+                    result = Convert.ToDouble(res);
+                    if (result >= norma)
+                    {
+                        ++count1;
+                    }
+                    else
+                    {
+                        ++count2;
+                    }
                 }
+                
+                res = Console.ReadLine();
             }
-            
+            Console.WriteLine(count1);
+            Console.WriteLine(count2);
+            Console.WriteLine(count3);
         }
-        Console.WriteLine("{0}\t{1}\t{2}", count_proshli, count_neproshli, count_soshli);
     }
 }
