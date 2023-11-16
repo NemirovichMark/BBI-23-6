@@ -563,12 +563,13 @@ namespace _3_лаба
             //double[] a = new double[5];
             //double[] b = new double[4];
             //string s;
+            //int f = 0;
             //for (int i = 0; i < 5; i++)
             //{
             //    s = Console.ReadLine();
             //    a[i] = double.Parse(s);
             //}
-            //double amin = a[0];
+            //double amin = 10000000;
             //int imin = 0;
             //for (int i = 0; i < 5; i++)
             //{
@@ -576,6 +577,7 @@ namespace _3_лаба
             //    {
             //        amin = a[i];
             //        imin = i;
+            //        f = 1;
             //    }
             //}
             //for (int i = 0; i < imin; i++)
@@ -586,9 +588,16 @@ namespace _3_лаба
             //{
             //    b[i - 1] = a[i];
             //}
-            //for (int i = 0; i < b.Length; i++)
+            //if (f == 0)
             //{
-            //    Console.WriteLine("{0:f}", b[i]);
+            //    Console.WriteLine("Нет положительных элементов");
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < b.Length; i++)
+            //    {
+            //        Console.WriteLine("{0:f}", b[i]);
+            //    }
             //}
 
             //// 2.11
@@ -730,44 +739,52 @@ namespace _3_лаба
             //}
 
             //// 2.15
-            //Console.WriteLine("Введите n: ");
-            //int n = int.Parse(Console.ReadLine());
-            //Console.WriteLine("Введите массив: ");
-            //int[] a = new int[n];
-            //for (int i = 0; i < n; i++)
-            //{
-            //    string s = Console.ReadLine();
-            //    a[i] = int.Parse(s);
-            //}
-            //Console.WriteLine("Введите m: ");
-            //int m = int.Parse(Console.ReadLine());
-            //Console.WriteLine("Введите массив: ");
-            //int[] b = new int[m];
-            //for (int i = 0; i < m; i++)
-            //{
-            //    string s1 = Console.ReadLine();
-            //    b[i] = int.Parse(s1);
-            //}
-            //int[] c = new int[n + m];
-            //Console.WriteLine("Введите k: ");
-            //int k = int.Parse(Console.ReadLine());
-            //for (int i = 0; i <= k; i++)
-            //{
-            //    c[i] = a[i];
-            //}
-            //for (int i = 0; i < m; i++)
-            //{
-            //    c[k + i + 1] = b[i];
-            //}
-            //for (int i = k + m + 1; i < m + n; i++)
-            //{
-            //    c[i] = a[i - m];
-            //}
-            //Console.WriteLine("Получившийся массив: ");
-            //for (int i = 0; i < m + n; i++)
-            //{
-            //    Console.WriteLine(c[i]);
-            //}
+            Console.WriteLine("Введите n: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите массив: ");
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                string s = Console.ReadLine();
+                a[i] = int.Parse(s);
+            }
+            Console.WriteLine("Введите m: ");
+            int m = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите массив: ");
+            int[] b = new int[m];
+            for (int i = 0; i < m; i++)
+            {
+                string s1 = Console.ReadLine();
+                b[i] = int.Parse(s1);
+            }
+            int[] c = new int[n + m];
+            Console.WriteLine("Введите k: ");
+            int k = int.Parse(Console.ReadLine());
+            if (k >= a.Length)
+            {
+                Console.WriteLine("Не существует такого элемента в массиве а");
+            }
+            else
+            {
+                for (int i = 0; i <= k; i++)
+                {
+                    c[i] = a[i];
+                }
+                for (int i = 0; i < m; i++)
+                {
+                    c[k + i + 1] = b[i];
+                }
+                for (int i = k + m + 1; i < m + n; i++)
+                {
+                    c[i] = a[i - m];
+                }
+                Console.WriteLine("Получившийся массив: ");
+                for (int i = 0; i < m + n; i++)
+                {
+                    Console.WriteLine(c[i]);
+                }
+            }
+            
 
             //// 2.16
             //double[] a = new double[5];
