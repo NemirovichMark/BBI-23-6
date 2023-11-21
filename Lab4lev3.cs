@@ -112,41 +112,42 @@ namespace ConsoleApp1
 
             for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < n; j++)
+                for (int j = 0; j < m; j++)
                 {
                     Console.Write(a[i, j] + "\t");
                 }
+                Console.WriteLine();
             }
 
             //четные - по убыванию
-            for (int i = 0; i < n; i+=2)
+            for (int i1 = 0; i1 < n; i1 += 2)
             {
                 for (int i = 0; i < m; i++)
                 {
                     for (int j = 0; j < m - 1; j++)
                     {
-                        if (a[i,j] < a[i,j + 1])
+                        if (a[i1, j] < a[i1, j + 1])
                         {
-                            double d = a[i,j];
-                            a[i,j] = a[i,j + 1];
-                            a[i,j + 1] = d;
+                            double d = a[i1, j];
+                            a[i1, j] = a[i1, j + 1];
+                            a[i1, j + 1] = d;
                         }
                     }
                 }
             }
 
             //нечетные - возрастание
-            for (int i = 1; i < n; i += 2)
+            for (int i1 = 1; i1 < n; i1 += 2)
             {
                 for (int i = 0; i < m; i++)
                 {
                     for (int j = 0; j < m - 1; j++)
                     {
-                        if (a[i, j] > a[i, j + 1])
+                        if (a[i1, j] > a[i1, j + 1])
                         {
-                            double d = a[i, j];
-                            a[i, j] = a[i, j + 1];
-                            a[i, j + 1] = d;
+                            double d = a[i1, j];
+                            a[i1, j] = a[i1, j + 1];
+                            a[i1, j + 1] = d;
                         }
                     }
                 }
@@ -154,10 +155,11 @@ namespace ConsoleApp1
 
             for (int i = 0; i < n; i++)
             {
-                for (int j = 0; j < n; j++)
+                for (int j = 0; j < m; j++)
                 {
                     Console.Write(a[i, j] + "\t");
                 }
+                Console.WriteLine();
             }
 
 #endregion
