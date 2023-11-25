@@ -10,10 +10,10 @@ namespace ConsoleApp1
             int id_max = -1;
             for (int i = 0; i < n - 1; i++)
             {
-                if (m[i,i] > max_elem)
+                if (m[i, i] > max_elem)
                 {
                     id_max = i;
-                    max_elem = m[i,i];
+                    max_elem = m[i, i];
                 }
             }
             return id_max;
@@ -47,7 +47,7 @@ namespace ConsoleApp1
                 {
                     if (m[i, j] < 0)
                     {
-                        const++;
+                        count++;
                     }
                 }
                 a2[i] = count;
@@ -161,155 +161,239 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-# region4
-            int n = 5;
-            double[,] a = new double[n, n];
-            double[,] b = new double[n, n];
+            //# region4
 
-            Random k = new Random();
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    a[i, j] = Math.Round(k.NextDouble() * 10);
-                    b[i, j] = Math.Round(k.NextDouble() * 10);
-                }
-            }
+            //            int n = 5;
+            //            double[,] a = new double[n, n];
+            //            double[,] b = new double[n, n];
 
-            int id_stroka_a_maxelem = MaxElemID(5, a);
-            int id_stolb_b_maxelem = MaxElemID(5, b);
+            //            Random k = new Random();
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                for (int j = 0; j < n; j++)
+            //                {
+            //                    a[i, j] = Math.Round(k.NextDouble() * 10);
+            //                    b[i, j] = Math.Round(k.NextDouble() * 10);
+            //                }
+            //            }
 
+            //            Console.WriteLine("Before A:");
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                for (int j = 0; j < n; j++)
+            //                {
+            //                    Console.Write(a[i, j] + " ");
+            //                }
+            //                Console.WriteLine();
+            //            }
+            //            Console.WriteLine();
 
-            for (int i = 0; i < n; i++)
-            {
-                double z = a[id_stroka_a_maxelem, i];
-                a[id_stroka_a_maxelem,i] = b[i, id_stolb_b_maxelem];
-                b[i, id_stolb_b_maxelem] = z;
-            }
-#endregion
+            //            Console.WriteLine("Before B:");
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                for (int j = 0; j < n; j++)
+            //                {
+            //                    Console.Write(b[i, j] + " ");
+            //                }
+            //                Console.WriteLine();
+            //            }
+            //            Console.WriteLine();
 
-# region10
-            int n = int.Parse(Console.ReadLine());
-            double[,] a = new double[n, n];
-
-            Random k = new Random();
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    a[i, j] = Math.Round(k.NextDouble() * 10);
-                }
-            }
-
-            //for (int i = 0; i < n; i++)
-            //{
-            //    for (int j = 0; j < n; j++)
-            //    {
-            //        Console.Write(a[i, j] + " ");
-            //    }
-            //    Console.WriteLine();
-            //}
-            //Console.WriteLine();
-            
-            int id_stolb_maxelem = -1;
-            double maxel = -100000000000;
-            int id_stolb_minelem = -1;
-            double minel = 100000000000;
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    if (j > i)
-                    {
-                        if (a[i, j] < minel)
-                        {
-                            minel = a[i, j];
-                            id_stolb_minelem = j;
-                        }
-                    }
-                    else
-                    {
-                        if (a[i, j] > maxel)
-                        {
-                            maxel = a[i, j];
-                            id_stolb_maxelem = j;
-                        }
-                    }
-                }
-            }
-            //Console.WriteLine(id_stolb_maxelem);
-            //Console.WriteLine(id_stolb_minelem);
-            a = Delete_Stolb(n, n, a, id_stolb_maxelem);
-            a = Delete_Stolb(n, n - 1, a, id_stolb_minelem - 1);
-
-            //for (int i = 0; i < n; i++)
-            //{
-            //    for (int j = 0; j < n - 2; j++)
-            //    {
-            //        Console.Write(a[i, j] + " ");
-            //    }
-            //    Console.WriteLine();
-            //}
-
-#endregion
-
-# region16
-            int n = int.Parse(Console.ReadLine());
-            double[] a = new double[n];
+            //            int id_stroka_a_maxelem = MaxElemID(5, a);
+            //            int id_stolb_b_maxelem = MaxElemID(5, b);
 
 
-            for (int i = 0; i < n; i++)
-            {
-                a[i] = double.Parse(Console.ReadLine());
-            }
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                double z = a[id_stroka_a_maxelem, i];
+            //                a[id_stroka_a_maxelem, i] = b[i, id_stolb_b_maxelem];
+            //                b[i, id_stolb_b_maxelem] = z;
+            //            }
 
-            for (int i = 0; i < n; i++)
-            {
-                Console.Write(a[i] + " ");
+            //            Console.WriteLine("After A:");
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                for (int j = 0; j < n; j++)
+            //                {
+            //                    Console.Write(a[i, j] + " ");
+            //                }
+            //                Console.WriteLine();
+            //            }
+            //            Console.WriteLine();
 
-            }
-            Console.WriteLine();
+            //            Console.WriteLine("After B:");
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                for (int j = 0; j < n; j++)
+            //                {
+            //                    Console.Write(b[i, j] + " ");
+            //                }
+            //                Console.WriteLine();
+            //            }
+            //            Console.WriteLine();
+            //#endregion
 
-            a = Sort_otr_num(a);
+            //            #region 10
+            //            int n = int.Parse(Console.ReadLine());
+            //            double[,] a = new double[n, n];
 
-            for (int i = 0; i < n; i++)
-            {
-                Console.Write(a[i] + " ");
+            //            Random k = new Random();
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                for (int j = 0; j < n; j++)
+            //                {
+            //                    a[i, j] = Math.Round(k.NextDouble() * 10);
+            //                }
+            //            }
 
-            }
-#endregion
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                for (int j = 0; j < n; j++)
+            //                {
+            //                    Console.Write(a[i, j] + " ");
+            //                }
+            //                Console.WriteLine();
+            //            }
+            //            Console.WriteLine();
 
-# region22
-            int n = int.Parse(Console.ReadLine());
-            int n2 = int.Parse(Console.ReadLine());
-            double[,] a = new double[n, n2];
+            //            int id_stolb_maxelem = -1;
+            //            double maxel = -100000000000;
+            //            int id_stolb_minelem = -1;
+            //            double minel = 100000000000;
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                for (int j = 0; j < n; j++)
+            //                {
+            //                    if (j > i)
+            //                    {
+            //                        if (a[i, j] < minel)
+            //                        {
+            //                            minel = a[i, j];
+            //                            id_stolb_minelem = j;
+            //                        }
+            //                    }
+            //                    else
+            //                    {
+            //                        if (a[i, j] > maxel)
+            //                        {
+            //                            maxel = a[i, j];
+            //                            id_stolb_maxelem = j;
+            //                        }
+            //                    }
+            //                }
+            //            }
+            //            Console.WriteLine(id_stolb_maxelem);
+            //            Console.WriteLine(id_stolb_minelem);
+
+            //            a = Delete_Stolb(n, n, a, id_stolb_maxelem);
+
+            //            if (id_stolb_maxelem != id_stolb_minelem)
+            //            {
+            //                a = Delete_Stolb(n, n - 1, a, id_stolb_minelem - 1);
+            //            }
+
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                for (int j = 0; j < n - 2; j++)
+            //                {
+            //                    Console.Write(a[i, j] + " ");
+            //                }
+            //                Console.WriteLine();
+            //            }
+
+            //            #endregion
+
+            //            #region 16
+            //            Console.WriteLine("first m");
+            //            int n = int.Parse(Console.ReadLine());
+            //            double[] a = new double[n];
+
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                a[i] = double.Parse(Console.ReadLine());
+            //            }
+
+            //            Console.WriteLine("second m");
+            //            int n2 = int.Parse(Console.ReadLine());
+            //            double[] a2 = new double[n2];
+
+            //            for (int i = 0; i < n2; i++)
+            //            {
+            //                a2[i] = double.Parse(Console.ReadLine());
+            //            }
 
 
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n2; j++)
-                {
-                    a[i, j] = double.Parse(Console.ReadLine());
-                }
-            }
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                Console.Write(a[i] + " ");
 
-            //for (int i = 0; i < n; i++)
-            //{
-            //    for (int j = 0; j < n2; j++)
-            //    {
-            //        Console.Write(a[i, j] + " ");
-            //    }
-            //    Console.WriteLine();
-            //}
+            //            }
+            //            Console.WriteLine();
 
-            double[] ans1 = Count_otr_v_stroks(n, n2, a);
-            double[] ans2 = Max_otr_v_strolb(n, n2, a);
+            //            for (int i = 0; i < n2; i++)
+            //            {
+            //                Console.Write(a2[i] + " ");
 
-            //for (int i = 0; i < n; i++)
-            //{
-            //    Console.Write(ans1[i] + " ");
-            //}
-#endregion
+            //            }
+            //            Console.WriteLine();
+
+            //            a = Sort_otr_num(a);
+            //            a2 = Sort_otr_num(a2);
+
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                Console.Write(a[i] + " ");
+
+            //            }
+
+            //            Console.WriteLine();
+            //            for (int i = 0; i < n2; i++)
+            //            {
+            //                Console.Write(a2[i] + " ");
+
+            //            }
+
+            //            #endregion
+
+            //# region 22
+            //            int n = int.Parse(Console.ReadLine());
+            //            int n2 = int.Parse(Console.ReadLine());
+            //            double[,] a = new double[n, n2];
+
+
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                for (int j = 0; j < n2; j++)
+            //                {
+            //                    a[i, j] = double.Parse(Console.ReadLine());
+            //                }
+            //            }
+
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                for (int j = 0; j < n2; j++)
+            //                {
+            //                    Console.Write(a[i, j] + " ");
+            //                }
+            //                Console.WriteLine();
+            //            }
+            //            Console.WriteLine();
+
+            //            double[] ans1 = Count_otr_v_stroks(n, n2, a);
+            //            double[] ans2 = Max_otr_v_strolb(n, n2, a);
+
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                Console.Write(ans1[i] + " ");
+            //            }
+            //            Console.WriteLine();
+
+            //            for (int i = 0; i < n; i++)
+            //            {
+            //                Console.Write(ans2[i] + " ");
+            //            }
+            //            #endregion
+
         }
     }
 }
