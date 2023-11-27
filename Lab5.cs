@@ -233,75 +233,89 @@ namespace ConsoleApp1
             //            Console.WriteLine();
             //#endregion
 
-            //            #region 10
-            //            int n = int.Parse(Console.ReadLine());
-            //            double[,] a = new double[n, n];
+            //#region 10
+            //int n = int.Parse(Console.ReadLine());
+            //double[,] a = new double[n, n];
 
-            //            Random k = new Random();
-            //            for (int i = 0; i < n; i++)
+            ////Random k = new Random();
+            //for (int i = 0; i < n; i++)
+            //{
+            //    for (int j = 0; j < n; j++)
+            //    {
+            //        a[i, j] = double.Parse(Console.ReadLine());
+            //    }
+            //}
+
+            //for (int i = 0; i < n; i++)
+            //{
+            //    for (int j = 0; j < n; j++)
+            //    {
+            //        Console.Write(a[i, j] + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //Console.WriteLine();
+
+            //int id_stolb_maxelem = -1;
+            //double maxel = -100000000000;
+            //int id_stolb_minelem = -1;
+            //double minel = 100000000000;
+            //for (int i = 0; i < n; i++)
+            //{
+            //    for (int j = 0; j < n; j++)
+            //    {
+            //        if (j > i)
+            //        {
+            //            if (a[i, j] < minel)
             //            {
-            //                for (int j = 0; j < n; j++)
-            //                {
-            //                    a[i, j] = Math.Round(k.NextDouble() * 10);
-            //                }
+            //                minel = a[i, j];
+            //                id_stolb_minelem = j;
             //            }
-
-            //            for (int i = 0; i < n; i++)
+            //        }
+            //        else
+            //        {
+            //            if (a[i, j] > maxel)
             //            {
-            //                for (int j = 0; j < n; j++)
-            //                {
-            //                    Console.Write(a[i, j] + " ");
-            //                }
-            //                Console.WriteLine();
+            //                maxel = a[i, j];
+            //                id_stolb_maxelem = j;
             //            }
-            //            Console.WriteLine();
+            //        }
+            //    }
+            //}
+            //Console.WriteLine(id_stolb_maxelem);
+            //Console.WriteLine(id_stolb_minelem);
+            //Console.WriteLine();
 
-            //            int id_stolb_maxelem = -1;
-            //            double maxel = -100000000000;
-            //            int id_stolb_minelem = -1;
-            //            double minel = 100000000000;
-            //            for (int i = 0; i < n; i++)
-            //            {
-            //                for (int j = 0; j < n; j++)
-            //                {
-            //                    if (j > i)
-            //                    {
-            //                        if (a[i, j] < minel)
-            //                        {
-            //                            minel = a[i, j];
-            //                            id_stolb_minelem = j;
-            //                        }
-            //                    }
-            //                    else
-            //                    {
-            //                        if (a[i, j] > maxel)
-            //                        {
-            //                            maxel = a[i, j];
-            //                            id_stolb_maxelem = j;
-            //                        }
-            //                    }
-            //                }
-            //            }
-            //            Console.WriteLine(id_stolb_maxelem);
-            //            Console.WriteLine(id_stolb_minelem);
+            //a = Delete_Stolb(n, n, a, id_stolb_maxelem);
 
-            //            a = Delete_Stolb(n, n, a, id_stolb_maxelem);
+            //if (id_stolb_maxelem != id_stolb_minelem)
+            //{
+            //    a = Delete_Stolb(n, n - 1, a, id_stolb_minelem - 1);
 
-            //            if (id_stolb_maxelem != id_stolb_minelem)
-            //            {
-            //                a = Delete_Stolb(n, n - 1, a, id_stolb_minelem - 1);
-            //            }
+            //    for (int i = 0; i < n; i++)
+            //    {
+            //        for (int j = 0; j < n - 2; j++)
+            //        {
+            //            Console.Write(a[i, j] + " ");
+            //        }
+            //        Console.WriteLine();
+            //    }
+            //}
+            //else
+            //{
+            //    for (int i = 0; i < n; i++)
+            //    {
+            //        for (int j = 0; j < n - 1; j++)
+            //        {
+            //            Console.Write(a[i, j] + " ");
+            //        }
+            //        Console.WriteLine();
+            //    }
+            //}
 
-            //            for (int i = 0; i < n; i++)
-            //            {
-            //                for (int j = 0; j < n - 2; j++)
-            //                {
-            //                    Console.Write(a[i, j] + " ");
-            //                }
-            //                Console.WriteLine();
-            //            }
 
-            //            #endregion
+
+            //#endregion
 
             //            #region 16
             //            Console.WriteLine("first m");
