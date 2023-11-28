@@ -390,11 +390,12 @@ namespace Лаба_4
             //        }
             //    }
             //}
+            //Console.WriteLine("Матрица после обработки:");
             //for (int i = 0; i < a.GetLength(0); i++)
             //{
             //    for (int j = 0; j < a.GetLength(1); j++)
             //    {
-            //        Console.WriteLine(a[i, j] + "\t");
+            //        Console.Write(a[i, j] + "\t");
             //    }
             //    Console.WriteLine();
             //}
@@ -428,30 +429,31 @@ namespace Лаба_4
             //}
             //for (int i = 0; i < a.GetLength(0); i++)
             //{
-            //    for (int j = 0; j < (a.GetLength(1)/3); j++)
+            //    for (int j = 0; j < (a.GetLength(1) / 3); j++)
             //    {
             //        a[i, j] = b[i, j];
             //    }
             //}
             //for (int i = 0; i < a.GetLength(0); i++)
             //{
-            //    for (int j = (a.GetLength(1) / 3); j < (a.GetLength(1)/3*2); j++)
+            //    for (int j = (a.GetLength(1) / 3); j < (a.GetLength(1) / 3 * 2); j++)
             //    {
             //        a[i, j] = c[i, j - (a.GetLength(1) / 3)];
             //    }
             //}
             //for (int i = 0; i < a.GetLength(0); i++)
             //{
-            //    for (int j = (a.GetLength(1)/3*2); j < a.GetLength(1); j++)
+            //    for (int j = (a.GetLength(1) / 3 * 2); j < a.GetLength(1); j++)
             //    {
-            //        a[i, j] = d[i, j-(a.GetLength(1) * 2 / 3)];
+            //        a[i, j] = d[i, j - (a.GetLength(1) * 2 / 3)];
             //    }
             //}
+            //Console.WriteLine("Матрица после обработки:");
             //for (int i = 0; i < a.GetLength(0); i++)
             //{
             //    for (int j = 0; j < a.GetLength(1); j++)
             //    {
-            //        Console.WriteLine(a[i, j] + "\t");
+            //        Console.Write(a[i, j] + "\t");
             //    }
             //    Console.WriteLine();
             //}
@@ -496,30 +498,7 @@ namespace Лаба_4
             //        }
             //    }
             //}
-            //for (int i = 0; i < a.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j < a.GetLength(1); j++)
-            //    {
-            //        Console.WriteLine(a[i, j] + "\t");
-            //    }
-            //    Console.WriteLine();
-            //}
-
-            //// 3.2
-            //int n = int.Parse(Console.ReadLine());
-            //int[,] a = new int[n, n];
-            //for (int i = 0; i < a.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j < a.GetLength(1); j++)
-            //    {
-            //        a[i, j] = int.Parse(Console.ReadLine());
-            //        if (i == n - 1 || j == 0 || j == n - 1 || i == 0)
-            //        {
-            //            a[i, j] = 0;
-            //        }
-            //    }
-            //}
-
+            //Console.WriteLine("Матрица A после обработки:");
             //for (int i = 0; i < a.GetLength(0); i++)
             //{
             //    for (int j = 0; j < a.GetLength(1); j++)
@@ -527,6 +506,37 @@ namespace Лаба_4
             //        Console.Write(a[i, j] + "\t");
             //    }
             //    Console.WriteLine();
+            //}
+
+            //// 3.2
+            //int n = int.Parse(Console.ReadLine());
+            //if (n == 0)
+            //{
+            //    int[,] a = new int[n, n];
+            //    for (int i = 0; i < a.GetLength(0); i++)
+            //    {
+            //        for (int j = 0; j < a.GetLength(1); j++)
+            //        {
+            //            a[i, j] = int.Parse(Console.ReadLine());
+            //            if (i == n - 1 || j == 0 || j == n - 1 || i == 0)
+            //            {
+            //                a[i, j] = 0;
+            //            }
+            //        }
+            //    }
+
+            //    for (int i = 0; i < a.GetLength(0); i++)
+            //    {
+            //        for (int j = 0; j < a.GetLength(1); j++)
+            //        {
+            //            Console.Write(a[i, j] + "\t");
+            //        }
+            //        Console.WriteLine();
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("В матрице нольэлементов, дальнейшие действия невозможны");
             //}
         }
     }
