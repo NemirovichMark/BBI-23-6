@@ -428,18 +428,119 @@ class Program
         //}
         #endregion
 
-        #region//3 уровень  задача
+        #region//3 уровень 1 задача
+        //double[,] a = new double[7, 5];
+        //double min = 10000000000000;
+        //double[] b = new double[7];
+        //double c = 0;
+        //for (int i = 0; i < 7; i++)
+        //{
+        //    for (int j = 0; j < 5; j++)
+        //    {
+        //        Console.WriteLine("[" + i + "," + j + "]");
+        //        a[i, j] = double.Parse(Console.ReadLine());
+        //    }
+        //    Console.WriteLine();
+        //}
+        //for (int i=0;i<7;i++)
+        //{
+        //    for (int j=0;j<5;j++)
+        //    {
+        //        if (a[i, j] < min)
 
+        //        {
+        //            min = a[i, j];
+        //        }
+        //    }
+        //    b[i] = min;
+        //    min = 10000000000000;
+        //}
+
+        //for (int k=0;k<7;k++)
+        //{
+        //    for (int i=0;i<6;i++)
+        //    {
+        //        if (b[i] < b[i+1])
+        //        {
+        //            c = b[i];
+        //            b[i] = b[i+1];
+        //            b[i+1] = c;
+        //            for (int j=0;j<5;j++)
+        //            {
+        //                double m = a[i, j];
+        //                a[i, j] = a[i + 1, j];
+        //                a[i + 1, j] = m;
+        //            }
+        //        }
+
+        //    }
+        //}
+        //for (int i = 0; i < 7; i++)
+        //{
+        //    for (int j = 0; j < 5; j++)
+        //    {
+        //        Console.Write(a[i,j]);
+        //    }
+        //    Console.WriteLine();
+        //}
         #endregion
 
-        #region//3 уровень  задача
+        #region//3 уровень 5 задача
+        //int n= Int32.Parse(Console.ReadLine());
+        //double[,] a = new double[n, n];
+        //double max = 0;
+        //double c = 0;
+        //int jmax = 0;
+        //int imax = 0;
+        //for (int i = 0; i < n; i++)
+        //{
+        //    for (int j = 0; j < n; j++)
+        //    {
+        //        Console.WriteLine("[" + i + "," + j + "]");
+        //        a[i, j] = double.Parse(Console.ReadLine());
+        //    }
+        //    Console.WriteLine();
+        //}
+        //for (int i = 0; i < n; i++)
+        //{
+        //    for (int j = 0; j < n; j++)
+        //    {
+        //        if (Math.Abs(a[i, j]) > max)
+        //        {
+        //            max = Math.Abs(a[i, j]);
+        //            jmax = j;
+        //            imax = i;
+        //        }
+        //    }
+        //}
+        //int k = Int32.Parse(Console.ReadLine());
+        //if (k >= 1 & k <= n)
+        //{
+        //    k -= 1;
+        //    for (int j = 0; j < n; j++)
+        //    {
+        //        c = a[imax, j];
+        //        a[imax, j] = a[k, j];
+        //        a[k, j] = c;
+        //    }
+        //    for (int i = 0; i < n; i++)
+        //    {
+        //        c = a[i, jmax];
+        //        a[i, jmax] = a[i, k];
+        //        a[i, k] = c;
+        //    }
+        //}
 
+        //for (int i = 0; i < n; i++)
+        //{
+        //    for (int j = 0; j < n; j++)
+        //    {
+        //        Console.Write(a[i, j] + " "); 
+        //    }
+        //    Console.WriteLine();
+        //}
         #endregion
 
-
-        #region//3 уровень  задача
-
-        #endregion
         Console.ReadKey();
     }
 }
