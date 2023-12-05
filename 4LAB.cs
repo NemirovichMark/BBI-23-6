@@ -388,7 +388,7 @@ class Program
 
         for (int i = 0; i < m; i++)
         {
-            double max_elem = -10000000;
+            double max_elem = -1e9;
             int i_strok = -1;
             for (int j = 0; j < n; j++)
             {
@@ -428,7 +428,7 @@ class Program
 
         for (int i = 0; i < 6; i += 2)
         {
-            double max_elem1 = -10000000;
+            double max_elem1 = -1e9;
             int i_max1 = -1;
             for (int j = 0; j < n; j++)
             {
@@ -439,7 +439,7 @@ class Program
                 }
             }
 
-            double max_elem2 = -10000000;
+            double max_elem2 = -1e9;
             int i_max2 = -1;
             for (int j = 0; j < n; j++)
             {
