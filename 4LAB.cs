@@ -538,3 +538,88 @@ class Program
         }
     }
 }
+--------------------------№1
+using System;
+class Program
+{
+    static void Main()
+    {
+        Random randomGenerator = new Random();
+
+        int n = 7;
+        int m = 5;
+        double[,] a = new double[n, m + 1];
+        double[,] b = new double[n, m];
+
+        Console.WriteLine();
+        for (int i = 0; i < n; ++i)
+        {
+            a[i, m] = 0;
+            for (int j = 0; j < m; ++j)
+            {
+                a[i, j] = randomGenerator.NextInt64() % 1000;
+                Console.Write(a[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+        Console.WriteLine();
+        double[] minElStr = new double[n];
+        for (int i = 0; i < n; ++i)
+        {
+            minElStr[i] = a[i, 0];
+        }
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 1; j < m; j++)
+            {
+                if (a[i, j] < minElStr[i])
+                {
+                    minElStr[i] = a[i, j];
+                }
+            }
+        }
+        for (int i = 0; i < n; ++i)
+        {
+            int maxStrIndex = -1;
+            double maxStrEl = -1;
+            for (int j = 0; j < n; ++j)
+            {
+                if (a[j, m] == 0)
+                {
+                    if (maxStrIndex == -1)
+                    {
+                        maxStrIndex = j;
+                        maxStrEl = minElStr[j];
+                    }
+                    if (minElStr[j] >= maxStrEl)
+                    {
+                        maxStrEl = minElStr[j];
+                        maxStrIndex = j;
+                    }
+                }
+            }
+            Console.WriteLine(
+                (i+1).ToString() +
+                " Строкой в новой матрице будет " +
+                (maxStrIndex+1).ToString()  +
+                " строка изначальной матрицы с минимальным элементом " +
+                maxStrEl.ToString()
+            );
+            a[maxStrIndex, m] = 1;
+            for (int j = 0; j < m; ++j)
+            {
+                b[i, j] = a[maxStrIndex, j];
+            }
+        }
+        Console.WriteLine();
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                Console.Write(b[i, j] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
+--------------
