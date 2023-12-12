@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace лаба_5
+class HelloWorld
 {
-    internal class Program
+    static void Main()
     {
         // задание 5
         //static int findmax(int[,]a, int nomber)
