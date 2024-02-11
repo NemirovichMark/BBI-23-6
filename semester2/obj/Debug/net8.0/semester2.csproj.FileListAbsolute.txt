@@ -1,0 +1,15 @@
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\bin\Debug\net8.0\semester2.exe
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\bin\Debug\net8.0\semester2.deps.json
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\bin\Debug\net8.0\semester2.runtimeconfig.json
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\bin\Debug\net8.0\semester2.dll
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\bin\Debug\net8.0\semester2.pdb
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\obj\Debug\net8.0\semester2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\obj\Debug\net8.0\semester2.AssemblyInfoInputs.cache
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\obj\Debug\net8.0\semester2.AssemblyInfo.cs
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\obj\Debug\net8.0\semester2.csproj.CoreCompileInputs.cache
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\obj\Debug\net8.0\semester2.sourcelink.json
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\obj\Debug\net8.0\semester2.dll
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\obj\Debug\net8.0\refint\semester2.dll
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\obj\Debug\net8.0\semester2.pdb
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\obj\Debug\net8.0\semester2.genruntimeconfig.cache
+C:\Users\lvedu\RiderProjects\university-course-bbi-23-6\semester2\obj\Debug\net8.0\ref\semester2.dll
