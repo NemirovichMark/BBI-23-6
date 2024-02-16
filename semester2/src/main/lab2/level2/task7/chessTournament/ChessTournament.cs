@@ -47,21 +47,8 @@ public class ChessTournament
     private void Parse(string info)
     {
         string[] infoGames = info.Split();
-        if (infoGames[2].Equals("win1") || infoGames[2].Equals("lose2"))
-        {
-            _chessPlayersDictionary[infoGames[0]].Win();
-            _chessPlayersDictionary[infoGames[1]].Lose();
-        }
-        else if (infoGames[2].Equals("win2") || infoGames[2].Equals("lose1"))
-        {
-            _chessPlayersDictionary[infoGames[0]].Lose();
-            _chessPlayersDictionary[infoGames[1]].Win();
-        }
-        else
-        {
-            _chessPlayersDictionary[infoGames[0]].Draw();
-            _chessPlayersDictionary[infoGames[1]].Draw();
-        }
+        _chessPlayersDictionary[infoGames[0]].Result(infoGames[2], 1);
+        _chessPlayersDictionary[infoGames[1]].Result(infoGames[2], 2);
     }
 
     public void SortChessPlayersArray()

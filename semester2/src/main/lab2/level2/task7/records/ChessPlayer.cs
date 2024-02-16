@@ -17,21 +17,42 @@ public record ChessPlayer(string Surname, int Id) : Sportsman(Surname)
         set => _numberPoints = value;
     }
 
-    public void Win()
+    public void Result(string result, int numberPlayer)
     {
-        _numberPoints++;
-        _numberGames++;
-    }
-
-    public void Draw()
-    {
-        _numberPoints += 0.5;
-        _numberGames++;
-    }
-
-    public void Lose()
-    {
-        _numberGames++;
+        if (numberPlayer == 1)
+        {
+            if (result.Equals("win1") || result.Equals("lose2"))
+            {
+                _numberPoints++;
+                _numberGames++;
+            }
+            else if (result.Equals("win2") || result.Equals("lose1"))
+            {
+                _numberGames++;
+            }
+            else
+            {
+                _numberPoints += 0.5;
+                _numberGames++;
+            }
+        }
+        else
+        {
+            if (result.Equals("win2") || result.Equals("lose1"))
+            {
+                _numberPoints++;
+                _numberGames++;
+            }
+            else if (result.Equals("win1") || result.Equals("lose2"))
+            {
+                _numberGames++;
+            }
+            else
+            {
+                _numberPoints += 0.5;
+                _numberGames++;
+            }
+        }
     }
 
     public string GetString()
