@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ADM\\Desktop\\GidHub3\\ConsoleApp1.csproj",
+      "projectUniqueName": "C:\\Users\\ADM\\Desktop\\2sem\\ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
-      "projectPath": "C:\\Users\\ADM\\Desktop\\GidHub3\\ConsoleApp1.csproj",
+      "projectPath": "C:\\Users\\ADM\\Desktop\\2sem\\ConsoleApp1.csproj",
       "packagesPath": "C:\\Users\\ADM\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ADM\\Desktop\\GidHub3\\obj\\",
+      "outputPath": "C:\\Users\\ADM\\Desktop\\2sem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ADM\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -79,7 +79,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
