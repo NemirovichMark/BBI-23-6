@@ -4,19 +4,51 @@ public class Program
 {
     class Participant
     {
-        public int res1;
-        public int res2;
-        public string last_name;
-        public string society;
-        public Participant(int res1, int res2, string last_name, string society)
+        private int res1;
+        private int res2;
+        private string last_name;
+        private string society;
+        public Participant(int res1, int res2, string last_name, string society) 
         {
             this.res1 = res1;
             this.res2 = res2;
             this.last_name = last_name;
             this.society = society;
         }
+        public int getFinalResult()
+        {
+            return this.res1 + this.res2;
+        }
+        public string Last_Name
+        {
+            get
+            {
+                return this.last_name;
+            }
+        }
+        public string Society
+        {
+            get
+            {
+                return this.society;
+            }
+        }
+         public int Res1
+        {
+            get
+            {
+                return this.res1;
+            }
+        }
+         public int Res2
+        {
+            get
+            {
+                return this.res2;
+            }
+        }
     }
-    class Protocol
+     class Protocol
     {
         List<Participant> a = new List<Participant>();
         public void addParticipant(Participant x)
@@ -26,9 +58,7 @@ public class Program
             {
                 for (int j = i + 1; j < this.a.Count; j++)
                 {
-                    int sum1 = this.a[i].res1 + this.a[i].res2;
-                    int sum2 = this.a[j].res1 + this.a[j].res2;
-                    if (sum1 < sum2)
+                    if (this.a[i].getFinalResult() < this.a[j].getFinalResult())
                     {
                         Participant change = a[i];
                         a[i] = a[j];
@@ -42,7 +72,7 @@ public class Program
             Console.WriteLine(String.Format("{0,10} {1,10} {2,10} {3,10}", "Фамилия", "Общество", "Рез_1", "Рез_2"));
             for (int i = 0; i < this.a.Count; i++)
             {
-                Console.WriteLine(String.Format("{0,10} {1,10} {2,10} {3,10}", this.a[i].last_name, this.a[i].society, this.a[i].res1, this.a[i].res2));
+                Console.WriteLine(String.Format("{0,10} {1,10} {2,10} {3,10}", this.a[i].Last_Name, this.a[i].Society, this.a[i].Res1, this.a[i].Res2));
             }
         }
     }
