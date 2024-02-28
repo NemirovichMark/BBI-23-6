@@ -1,5 +1,5 @@
 Лаба 6 
-Номер 2 
+Уровень 1 Номер 2 
 
 using System;
 using System.Collections.Generic;
@@ -50,7 +50,7 @@ class Runner
 }
 
 
-Номер 8 уровень 2
+Уровень 2 Номер 8
 
 using System;
 using System.Collections.Generic;
@@ -89,7 +89,7 @@ System.Console.OutputEncoding = System.Text.Encoding.UTF8;
     }
 }
 
-Номер 5 уровень 3
+Урровень 3 Номер 5
 
 using System;
 using System.Collections.Generic;
