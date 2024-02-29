@@ -13,15 +13,15 @@ namespace lab_6_task_3
 {
     class Match
     {
-        public struct Team // структура
+        public struct Team
         {
 
-            public Team() // конструктор, я не до конца понимаю для чего он используется, поэтому не использую в этом коде
+            public Team()
             {
 
             }
 
-            static string[] Winners(string[] team, int[] count) 
+            static string[] Winners(string[] team, int[] count)
             {
                 string[] winners = new string[6];
                 int j = 0;
@@ -33,12 +33,12 @@ namespace lab_6_task_3
                     else { i = 0; }
                     if (countt[i] == countt.Max()) { countt[i] = 0; winners[j] = team[i]; j++; }
                     if (j == 6) { break; }
-                    
+
                 }
                 return winners;
             }
 
-            /* для самопроверки
+            /*
             static void Print_int(int[] team)
             {
                 for (int i = 0; i < team.Length; i++) { Console.Write(team[i] + " "); }
@@ -49,6 +49,26 @@ namespace lab_6_task_3
             {
                 for (int i = 0; i < team.Length; i++) { Console.Write(team[i] + " "); }
                 Console.WriteLine();
+            }
+
+            static string[] Result(string[] teamA, string[] teamB, int[] countA, int[] countB)
+            {
+                string[] team = new string[12];
+                int j = 0; int i = 0;
+                for (int k = 0; k < 11; k++)
+                {
+                    if (i < 6 && j < 6)
+                    {
+                        if (countA[i] >= countB[j]) { team[k] = teamA[i]; i++; }
+                        else { team[k] = teamB[j]; j++; }
+                    }
+                    else
+                    {
+                        if (i > 5) { team[k] = teamB[j]; j++; }
+                        if (j > 5) { team[k] = teamA[i]; i++; }
+                    }
+                }
+                return team;
             }
 
             static void Main(string[] args)
@@ -66,17 +86,17 @@ namespace lab_6_task_3
                         if (rand.Next(0, 10) < rand.Next(0, 10)) { countB[j] += 1; }
                     }
                 }
-                /* самопроверка: 
+
+                /*
                 Console.Write("Количество побед 1 команды: ");
                 Print_int(countA);
                 Console.Write(":Количество побед 2 команды: ");
                 Print_int(countB);
                 */
 
-                Console.WriteLine("Состав 1 команды: ");
-                Print(Winners(teamA, countA));
-                Console.WriteLine("Состав 2 команды: ");
-                Print(Winners(teamB, countB));
+                Console.WriteLine("Участники 2 этапа: ");
+                Print(Result(Winners(teamA, countA), Winners(teamB, countB), countA, countB));
+
             }
 
         }
