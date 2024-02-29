@@ -1,0 +1,161 @@
+Уровень 1 Номер 2 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+        List<Runner> runners = new List<Runner>();
+
+        runners.Add(new Runner("Махаури", "Группа 1", "Тренер Морозова ", 12));
+        runners.Add(new Runner("Галямова", "Группа 2", "Тренера Немирович", 11));
+        runners.Add(new Runner("Смирнова", "Группа 4", "Тренер Казанцев", 10));
+        runners.Add(new Runner("Молокова", "Группа 3", "Тренер Песьяков", 9));
+
+        Console.WriteLine("Результаты кросса:");
+        foreach (var runner in runners.OrderBy(runner => runner.Result))
+        {
+            runner.PrintInfo();
+        }
+
+        int passedNorm = runners.Count(runner => runner.Result <= 10);
+        Console.WriteLine($"\nОбщее количество участниц, выполнивших норматив: {passedNorm}");
+    }
+}
+
+struct Runner
+{
+    public string Surname { get; }
+    public string Group { get; }
+    public string TeacherSurname { get; }
+    public double Result { get; }
+
+    public Runner(string surname, string group, string teacherSurname, double result)
+    {
+        Surname = surname;
+        Group = group;
+        TeacherSurname = teacherSurname;
+        Result = result;
+    }
+
+    public void PrintInfo()
+    {
+        Console.WriteLine($"{Surname}\t\t{Group}\t\t{TeacherSurname}\t\t{Result:F2}\t\t{(Result <= 10 ? "Выполнен" : "Не выполнен")}");
+    }
+}
+
+Номер 8 уровень 2
+
+ using System;
+ using System.Collections.Generic;
+ using System.Linq;
+
+ public struct Player
+ {
+     private string _name;
+     private int _totalPenaltyTime;
+
+     public Player(string name, int totalPenaltyTime)
+     {
+         _name = name;
+         _totalPenaltyTime = totalPenaltyTime;
+     }
+
+     public string Name { get { return _name; } }
+     public int TotalPenaltyTime { get { return _totalPenaltyTime; } }
+ }
+
+ public class Program
+ {
+     static void Main()
+     {
+         List<Player> players = new List<Player>
+         {
+             new Player("Player1", 15),
+             new Player("Player2", 5),
+             new Player("Player3", 10),
+             new Player("Player4", 9),
+             new Player("Player5", 7)
+         };
+
+         var candidates = players.Where(p => p.TotalPenaltyTime < 10)
+                                 .OrderBy(p => p.TotalPenaltyTime)
+                                 .ToList();
+
+         System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+         Console.WriteLine("Кандидаты в сборную (в порядке возрастания штрафного времени):");
+         foreach (var candidate in candidates)
+         {
+             Console.WriteLine($"{candidate.Name} - {candidate.TotalPenaltyTime} мин");
+         }
+     }
+ }
+ Номер 5 уровень 3
+
+ using System;
+ using System.Collections.Generic;
+ using System.Linq;
+
+ public class Program
+ {
+     public class Team
+     {
+         private string _name;
+         private int _goals;
+         private int _miss;
+         private int _points;
+
+         public Team(string name, int goals, int miss)
+         {
+             _name = name;
+             _goals = goals;
+             _miss = miss;
+         }
+
+         public string Name { get { return _name; } }
+         public int Goals { get { return _goals; } }
+         public int Miss { get { return _miss; } }
+         public int Points { get { return _points; } set { _points = value; } }
+     }
+
+     static void Main()
+     {
+         List<Team> teams = new List<Team>
+         {
+             new Team("Team1", 5, 2),
+             new Team("Team2", 3, 3),
+             new Team("Team3", 4, 6),
+         };
+
+         foreach (var team in teams)
+         {
+             if (team.Goals > team.Miss)
+             {
+                 team.Points = 3;
+             }
+             else if (team.Goals == team.Miss)
+             {
+                 team.Points = 1;
+             }
+             else
+             {
+                 team.Points = 0;
+             }
+         }
+
+         var orderedTeams = teams.OrderByDescending(t => t.Points)
+                                  .ThenByDescending(t => t.Goals - t.Miss)
+                                  .ToList();
+
+         System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+         Console.WriteLine("Таблица результатов:");
+         for (int i = 0; i < orderedTeams.Count; i++)
+         {
+             Console.WriteLine($"{i + 1}. {orderedTeams[i].Name} - {orderedTeams[i].Points} очков");
+         }
+     }
+ }
+
