@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lvedu\\RiderProjects\\university-course-bbi-23-6\\semester2\\semester2.csproj": {}
+    "/Users/laviprog/Projects/university-course-bbi-23-6/semester2/semester2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lvedu\\RiderProjects\\university-course-bbi-23-6\\semester2\\semester2.csproj": {
+    "/Users/laviprog/Projects/university-course-bbi-23-6/semester2/semester2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lvedu\\RiderProjects\\university-course-bbi-23-6\\semester2\\semester2.csproj",
+        "projectUniqueName": "/Users/laviprog/Projects/university-course-bbi-23-6/semester2/semester2.csproj",
         "projectName": "semester2",
-        "projectPath": "C:\\Users\\lvedu\\RiderProjects\\university-course-bbi-23-6\\semester2\\semester2.csproj",
-        "packagesPath": "C:\\Users\\lvedu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lvedu\\RiderProjects\\university-course-bbi-23-6\\semester2\\obj\\",
+        "projectPath": "/Users/laviprog/Projects/university-course-bbi-23-6/semester2/semester2.csproj",
+        "packagesPath": "/Users/laviprog/.nuget/packages/",
+        "outputPath": "/Users/laviprog/Projects/university-course-bbi-23-6/semester2/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\lvedu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/laviprog/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/laviprog/.dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
