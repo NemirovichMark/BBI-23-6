@@ -1,53 +1,31 @@
-1 лвл
+Лвл 1 using System.Collections.Generic;
+
 using System;
 
 public class Program
 {
     class Participant
     {
-        private int res1;
-        private int res2;
+        private int result;
         private string last_name;
         private string society;
         public Participant(int res1, int res2, string last_name, string society) 
         {
-            this.res1 = res1;
-            this.res2 = res2;
+            this.result = res1 + res2;
             this.last_name = last_name;
             this.society = society;
         }
-        public int getFinalResult()
-        {
-            return this.res1 + this.res2;
+        public void consoleResult() {
+            Console.WriteLine(String.Format("{0,10} {1,10} {2,10}", this.last_name, this.society, this.result));
         }
-        public string Last_Name
-        {
-            get
-            {
-                return this.last_name;
-            }
-        }
-        public string Society
+        public int Result 
         {
             get
             {
-                return this.society;
+                return this.result;
             }
         }
-         public int Res1
-        {
-            get
-            {
-                return this.res1;
-            }
-        }
-         public int Res2
-        {
-            get
-            {
-                return this.res2;
-            }
-        }
+        
     }
      class Protocol
     {
@@ -59,7 +37,7 @@ public class Program
             {
                 for (int j = i + 1; j < this.a.Count; j++)
                 {
-                    if (this.a[i].getFinalResult() < this.a[j].getFinalResult())
+                    if (this.a[i].Result < this.a[j].Result)
                     {
                         Participant change = a[i];
                         a[i] = a[j];
@@ -70,10 +48,10 @@ public class Program
         }
         public void output()
         {
-            Console.WriteLine(String.Format("{0,10} {1,10} {2,10} {3,10}", "Фамилия", "Общество", "Рез_1", "Рез_2"));
+            Console.WriteLine(String.Format("{0,10} {1,10} {2,10}", "Фамилия", "Общество", "Результат"));
             for (int i = 0; i < this.a.Count; i++)
             {
-                Console.WriteLine(String.Format("{0,10} {1,10} {2,10} {3,10}", this.a[i].Last_Name, this.a[i].Society, this.a[i].Res1, this.a[i].Res2));
+                this.a[i].consoleResult();
             }
         }
     }
@@ -89,8 +67,7 @@ public class Program
         jp.output();
     }
 }
-——————————
-2 лвл  шахматный турнир  using System.Collections.Generic;
+——— 2 лвл  using System.Collections.Generic;
 using System;
 
 public class Person
@@ -101,12 +78,8 @@ public class Person
     {
         this.surname = surname;
     }
-    public string Surname 
-    {
-        get
-        {
-            return this.surname;        
-        }
+    public void consoleResult() {
+        Console.WriteLine(String.Format("{0,10} {1,10}", this.surname, this.score));
     }
     public double Score 
     {
@@ -181,7 +154,7 @@ public class Tournament
         Console.WriteLine(String.Format("{0,10} {1,10}", "Фамилия", "Результат"));
         for (int i = 0 ; i < this.participants.Count; i++) 
         {
-            Console.WriteLine(String.Format("{0,10} {1,10}", this.participants[i].Surname, this.participants[i].Score));
+            this.participants[i].consoleResult();
         }
     }
     
@@ -197,12 +170,13 @@ public class Program
         lupaPupaInternational.addParticipant("Kruglov");
         lupaPupaInternational.addParticipant("Zele");
         lupaPupaInternational.addParticipant("Byko");
-        lupaPupaInternational.addParticipant("DogGdeBabki");
+        lupaPupaInternational.addParticipant("DogGdeBabk");
         lupaPupaInternational.simulateGames();
         lupaPupaInternational.getResults();
         
     }
 }
+——————
 ———————————
 3 лвл
 
