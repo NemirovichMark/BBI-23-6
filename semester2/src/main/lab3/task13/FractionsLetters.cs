@@ -5,35 +5,18 @@ namespace semester2.main.lab3.task13;
 public class FractionsLetters : Task
 {
     private readonly Dictionary<char, int> _dictionaryLetters = new Dictionary<char, int>();
-    private Regex _regex = new Regex("");
     private int _numberWords;
 
-    public enum Lang
-    {
-        Ru,
-        En
-    }
-
-    public FractionsLetters(string text, Lang lang)
+    public FractionsLetters(string text)
     {
         this.text = text;
-        InitDictionary(lang);
+        InitDictionary();
         CountLettersStartWords();
     }
 
-    private void InitDictionary(Lang lang)
+    private void InitDictionary()
     {
-        switch (lang)
-        {
-            case Lang.Ru:
-                FillDictionary('а', 'я', 0);
-                _regex = new Regex("[^а-я]+");
-                break;
-            case Lang.En:
-                FillDictionary('a', 'z', 0);
-                _regex = new Regex("[^a-z]+");
-                break;
-        }
+        FillDictionary('a', 'z', 0);
     }
 
     private void FillDictionary(char left, char right, int value)
@@ -47,7 +30,7 @@ public class FractionsLetters : Task
         string[] words = SplitText();
         for (int i = 0; i < words.Length; i++)
         {
-            if (words[i] != "")
+            if (words[i] != "" && words[i][0] >= 'a' && words[i][0] <= 'z')
             {
                 _dictionaryLetters[words[i][0]]++;
                 _numberWords++;
@@ -57,7 +40,7 @@ public class FractionsLetters : Task
 
     private string[] SplitText()
     {
-        return _regex.Split(text);
+        return text.Split();
     }
 
     /*

@@ -6,8 +6,7 @@ public static class FractionsLettersApplication
     {
         Console.WriteLine(
             new FractionsLetters(
-                Console.ReadLine() ?? throw new ArgumentNullException(),
-                FractionsLetters.Lang.Ru
+                Console.ReadLine() ?? throw new ArgumentNullException()
             ).ToString()
         );
     }
