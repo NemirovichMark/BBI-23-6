@@ -1,226 +1,28 @@
-// лаба 6(первая лаба 2 семестра)
-// задача 1
-using System;
-using System.Collections.Generic;
-
-class Participant
-{
-    private string lastName;
-    private string society;
-    private double firstAttempt;
-    private double secondAttempt;
-
-    public string LastName
-    {
-        get { return lastName; }
-        set { lastName = value; }
-    }
-
-    public string Society
-    {
-        get { return society; }
-        set { society = value; }
-    }
-
-    public double FirstAttempt
-    {
-        get { return firstAttempt; }
-        set { firstAttempt = value; }
-    }
-
-    public double SecondAttempt
-    {
-        get { return secondAttempt; }
-        set { secondAttempt = value; }
-    }
-
-    public double GetTotalDistance()
-    {
-        return FirstAttempt + SecondAttempt;
-    }
-}
-
-class Program
-{
-    static void Main()
-    {
-        List<Participant> participants = new List<Participant>();
-
-        // Добавление участников в список
-        participants.Add(new Participant { LastName = "Вавилов", Society = "Общество 1", FirstAttempt = 7.2, SecondAttempt = 7.5 });
-        participants.Add(new Participant { LastName = "Конюхов", Society = "Общество 2", FirstAttempt = 6.8, SecondAttempt = 7.0 });
-        participants.Add(new Participant { LastName = "Смирнов", Society = "Общество 1", FirstAttempt = 7.0, SecondAttempt = 6.4 });
-
-        // Сортировка результатов по сумме двух попыток
-        participants.Sort((p1, p2) => p2.GetTotalDistance().CompareTo(p1.GetTotalDistance()));
-
-        // Вывод протокола в виде таблицы
-        Console.WriteLine("Место\tФамилия\tОбщество\tРезультат");
-        for (int i = 0; i < participants.Count; i++)
-        {
-            Participant participant = participants[i];
-            Console.WriteLine($"{i + 1}\t{participant.LastName}\t{participant.Society}\t{participant.GetTotalDistance()}");
-        }
-    }
-}
-// задача 1 2 уровень
-using System;
-using System.Collections.Generic;
-
-class Student
-{
-    private string name;
-    private List<double> examScores;
-
-    public string Name
-    {
-        get { return name; }
-        set { name = value; }
-    }
-
-    public List<double> ExamScores
-    {
-        get { return examScores; }
-        set { examScores = value; }
-    }
-
-    public double GetAverageScore()
-    {
-        double sum = 0;
-        foreach (double score in examScores)
-        {
-            sum += score;
-        }
-        return sum / examScores.Count;
-    }
-}
-
-class Program
-{
-    static void Main()
-    {
-        List<Student> students = new List<Student>();
-
-        // Добавление студентов в список
-        students.Add(new Student { Name = "Васечкин", ExamScores = new List<double> { 4.5, 4.8, 4.2, 4.7 } });
-        students.Add(new Student { Name = "Филатова", ExamScores = new List<double> { 4.2, 4.0, 4.5, 3.9 } });
-        students.Add(new Student { Name = "Черниговцев", ExamScores = new List<double> { 3.9, 4.1, 4.3, 4.4 } });
-        students.Add(new Student { Name = "Назарова", ExamScores = new List<double> { 3.9, 3.1, 4.3, 4.2 } });
-
-        // Фильтрация студентов по среднему баллу
-        List<Student> filteredStudents = new List<Student>();
-        foreach (Student student in students)
-        {
-            if (student.GetAverageScore() >= 4)
-            {
-                filteredStudents.Add(student);
-            }
-        }
-
-        // Сортировка студентов по убыванию среднего балла
-        filteredStudents.Sort((s1, s2) => s2.GetAverageScore().CompareTo(s1.GetAverageScore()));
-
-        // Вывод результатов в виде таблицы
-        Console.WriteLine("Студент\t\tСредний балл");
-        foreach (Student student in filteredStudents)
-        {
-            Console.WriteLine($"{student.Name}\t\t{student.GetAverageScore()}");
-        }
-    }
-}
+// 7 лаба.
 // 6.3
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
-class Survey
+class Country
 {
-    private List<string> animalAnswers;
-    private List<string> characterTraitAnswers;
-    private List<string> conceptAnswers;
+    public string CountryName { get; set; }
+    public Dictionary<string, int> Answers { get; set; }
 
-    public List<string> AnimalAnswers
+    public Country(string countryName, Dictionary<string, int> answers)
     {
-        get { return animalAnswers; }
-        set { animalAnswers = value; }
+        CountryName = countryName;
+        Answers = answers;
     }
 
-    public List<string> CharacterTraitAnswers
+    public virtual string GetCountryName()
     {
-        get { return characterTraitAnswers; }
-        set { characterTraitAnswers = value; }
+        return "Страна";
     }
 
-    public List<string> ConceptAnswers
+    public void PrintSurveyResults(Dictionary<string, double> topAnswers)
     {
-        get { return conceptAnswers; }
-        set { conceptAnswers = value; }
-    }
-
-    public Dictionary<string, double> GetTopAnswers(List<string> answers)
-    {
-        Dictionary<string, int> answerCounts = new Dictionary<string, int>();
-
-        // Подсчет количества каждого ответа
-        foreach (string answer in answers)
-        {
-            if (answerCounts.ContainsKey(answer))
-            {
-                answerCounts[answer]++;
-            }
-            else
-            {
-                answerCounts[answer] = 1;
-            }
-        }
-
-        // Сортировка ответов по количеству по убыванию
-        List<string> sortedAnswers = new List<string>(answerCounts.Keys);
-        sortedAnswers.Sort((a1, a2) => answerCounts[a2].CompareTo(answerCounts[a1]));
-
-        // Получение первых пяти наиболее часто встречающихся ответов
-        Dictionary<string, double> topAnswers = new Dictionary<string, double>();
-        int totalCount = answers.Count;
-        int count = Math.Min(5, sortedAnswers.Count);
-        for (int i = 0; i < count; i++)
-        {
-            string answer = sortedAnswers[i];
-            double percentage = (double)answerCounts[answer] / totalCount * 100;
-            topAnswers[answer] = percentage;
-        }
-
-        return topAnswers;
-    }
-}
-
-class Program
-{
-    static void Main()
-    {
-        Survey survey = new Survey();
-
-        // Получение ответов на вопросы
-        survey.AnimalAnswers = new List<string> { "Кошка", "Собака", "Рыба", "Рыба", "Кошка", "Кролик", "Кошка" };
-        survey.CharacterTraitAnswers = new List<string> { "Самообладание", "Вежливость", "Трудолюбие", "Трудолюбие", "Трудолюбие" };
-        survey.ConceptAnswers = new List<string> { "Чайная церемония", "Сакура", "Сакура", "Суши", "Самурай", "Суши", "Сакура" };
-
-        // Получение первых пяти наиболее часто встречающихся ответов и их доли в процентах
-        Dictionary<string, double> topAnimalAnswers = survey.GetTopAnswers(survey.AnimalAnswers);
-        Dictionary<string, double> topCharacterTraitAnswers = survey.GetTopAnswers(survey.CharacterTraitAnswers);
-        Dictionary<string, double> topConceptAnswers = survey.GetTopAnswers(survey.ConceptAnswers);
-
-        // Вывод результатов
-        Console.WriteLine("Вопрос а): Какое животное Вы связываете с Японией и японцами?");
-        PrintTopAnswers(topAnimalAnswers);
-
-        Console.WriteLine("Вопрос б): Какая черта характера присуща японцам больше всего?");
-        PrintTopAnswers(topCharacterTraitAnswers);
-
-        Console.WriteLine("Вопрос в): Какай неодушевленный предмет или понятие Вы связываете с Японией?");
-        PrintTopAnswers(topConceptAnswers);
-    }
-
-    static void PrintTopAnswers(Dictionary<string, double> topAnswers)
-    {
+        Console.WriteLine($"Ответы для {GetCountryName()}:");
         if (topAnswers.Count == 0)
         {
             Console.WriteLine("Нет ответов на данный вопрос.");
@@ -234,5 +36,101 @@ class Program
             }
         }
         Console.WriteLine();
+    }
+}
+
+class Russia : Country
+{
+    public Russia(Dictionary<string, int> answers) : base("Россия", answers) { }
+
+    public override string GetCountryName()
+    {
+        return "Россия";
+    }
+}
+
+class Japan : Country
+{
+    public Japan(Dictionary<string, int> answers) : base("Япония", answers) { }
+
+    public override string GetCountryName()
+    {
+        return "Япония";
+    }
+}
+
+class Survey
+{
+    public Dictionary<string, List<string>> Questions { get; set; }
+
+    public Survey(Dictionary<string, List<string>> questions)
+    {
+        Questions = questions;
+    }
+
+    public Dictionary<string, double> GetTopAnswers(Dictionary<string, int> answers)
+    {
+        Dictionary<string, double> topAnswers = new Dictionary<string, double>();
+        int totalAnswers = answers.Values.Sum();
+        foreach (var answer in answers)
+        {
+            topAnswers[answer.Key] = (double)answer.Value / totalAnswers * 100;
+        }
+        return topAnswers;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Получение ответов на вопросы
+        var surveyQuestions = new Dictionary<string, List<string>>
+        {
+            { "Животные", new List<string> { "Кошка", "Собака", "Рыба", "Рыба", "Кошка", "Кролик", "Кошка" } },
+            { "Черты характера", new List<string> { "Самообладание", "Вежливость", "Трудолюбие", "Трудолюбие", "Трудолюбие" } },
+            { "Понятия", new List<string> { "Чайная церемония", "Сакура", "Сакура", "Суши", "Самурай", "Суши", "Сакура" } }
+        };
+        var survey = new Survey(surveyQuestions);
+
+        // Создание объектов для стран
+        var russiaAnswers = new Dictionary<string, int> { { "Кошка", 3 }, { "Рыба", 2 }, { "Кролик", 1 } };
+        var russia = new Russia(russiaAnswers);
+
+        var japanAnswers = new Dictionary<string, int> { { "Сакура", 4 }, { "Суши", 2 }, { "Самурай", 1 } };
+        var japan = new Japan(japanAnswers);
+
+        // Получение ответов для каждой страны
+        var topRussiaAnswers = survey.GetTopAnswers(russia.Answers);
+        var topJapanAnswers = survey.GetTopAnswers(japan.Answers);
+
+        // Вывод результатов для каждой страны
+        russia.PrintSurveyResults(topRussiaAnswers);
+        japan.PrintSurveyResults(topJapanAnswers);
+
+        // Объединенные ответы
+        var combinedAnswers = new Dictionary<string, int>();
+        foreach (var question in surveyQuestions)
+        {
+            foreach (var answer in question.Value)
+            {
+                if (combinedAnswers.ContainsKey(answer))
+                {
+                    combinedAnswers[answer]++;
+                }
+                else
+                {
+                    combinedAnswers[answer] = 1;
+                }
+            }
+        }
+        var topCombinedAnswers = survey.GetTopAnswers(combinedAnswers);
+
+        // Вывод общих результатов
+        Console.WriteLine("Общие ответы для обеих стран:");
+        foreach (var answer in topCombinedAnswers)
+        {
+            Console.WriteLine($"{answer.Key}\t\t{answer.Value:F2}");
+        }
     }
 }
