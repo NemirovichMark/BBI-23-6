@@ -82,13 +82,19 @@
 //        return list;
 //    }
 
-//    protected void Print_table(Sportsman[] list)
+//    protected void Sorevnovan(Sportsman[] sportsmen)
+//    {
+//        Sportsman[] list_sort = Sort(sportsmen);
+//        Print_table(list_sort);
+//    }
+
+//    protected void Print_table(Sportsman[] sort_list)
 //    {
 //        Console.WriteLine(dist);
-//        for (int i = 0; i < list.Length; i++)
+//        for (int i = 0; i < sort_list.Length; i++)
 //        {
 //            Console.Write($"{i + 1} место:");
-//            Console.Write($"имя: {list[i].Name} результат: {RezultForPerson(list[i].Golosa)}");
+//            Console.Write($"имя: {sort_list[i].Name} результат: {RezultForPerson(sort_list[i].Golosa)}");
 //            Console.WriteLine();
 //        }
 //        Console.WriteLine();
@@ -101,13 +107,7 @@
 //    {
 //        this.sportsmen = sportsmen;
 //        this.dist = dist;
-//        Sorevnovan();
-//    }
-
-//    public void Sorevnovan()
-//    {
-//        Sportsman[] list_sort = Sort(sportsmen);
-//        Print_table(list_sort);
+//        Sorevnovan(sportsmen);
 //    }
 //}
 
@@ -117,13 +117,7 @@
 //    {
 //        this.sportsmen = sportsmen;
 //        this.dist = dist;
-//        Sorevnovan();
-//    }
-
-//    public void Sorevnovan()
-//    {
-//        Sportsman[] list_sort = Sort(sportsmen);
-//        Print_table(list_sort);
+//        Sorevnovan(sportsmen);
 //    }
 //}
 
