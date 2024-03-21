@@ -1,4 +1,4 @@
-﻿//using System;
+//using System;
 //using System.Collections.Generic;
 //using System.Text;
 
@@ -88,7 +88,19 @@
 //        Print_table(list_sort);
 //    }
 
-//    protected void Print_table(Sportsman[] sort_list)
+//    protected virtual void Print_table(Sportsman[] sort_list);
+//}
+
+//class Jump3 : JumpWater
+//{
+//    public Jump3(string dist, Sportsman[] sportsmen) : base(sportsmen, dist)
+//    {
+//        this.sportsmen = sportsmen;
+//        this.dist = dist;
+//        Sorevnovan(sportsmen);
+//    }
+
+//    protected override void Print_table(Sportsman[] sort_list)
 //    {
 //        Console.WriteLine(dist);
 //        for (int i = 0; i < sort_list.Length; i++)
@@ -101,16 +113,6 @@
 //    }
 //}
 
-//class Jump3 : JumpWater
-//{
-//    public Jump3(string dist, Sportsman[] sportsmen) : base(sportsmen, dist)
-//    {
-//        this.sportsmen = sportsmen;
-//        this.dist = dist;
-//        Sorevnovan(sportsmen);
-//    }
-//}
-
 //class Jump5 : JumpWater
 //{
 //    public Jump5(string dist, Sportsman[] sportsmen) : base(sportsmen, dist)
@@ -118,6 +120,30 @@
 //        this.sportsmen = sportsmen;
 //        this.dist = dist;
 //        Sorevnovan(sportsmen);
+//    }
+//    protected override void Print_table(Sportsman[] sort_list)
+//    {
+//        Console.WriteLine(dist);
+//        for (int i = 0; i < sort_list.Length; i++)
+//        {
+//            Console.Write($"{i + 1} место:");
+//            Console.Write($"имя: {sort_list[i].Name} результат: {RezultForPerson(sort_list[i].Golosa)}");
+//            Console.WriteLine();
+//        }
+//        Console.WriteLine();
+//    }
+
+//
+//    protected override void Print_table(Sportsman[] sort_list)
+//    {
+//        Console.WriteLine(dist);
+//        for (int i = 0; i < sort_list.Length; i++)
+//        {
+//            Console.Write($"{i + 1} место:");
+//            Console.Write($"имя: {sort_list[i].Name} результат: {RezultForPerson(sort_list[i].Golosa)}");
+//            Console.WriteLine();
+//        }
+//        Console.WriteLine();
 //    }
 //}
 
@@ -184,3 +210,4 @@
 
 //    }
 //}
+
