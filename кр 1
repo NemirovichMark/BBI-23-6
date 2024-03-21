@@ -1,0 +1,209 @@
+Контрольная работа 
+Задание 1 
+using System;
+
+struct Goods
+{
+    public string name;
+    public string description;
+    public double price;
+    public int code;
+
+    public Goods(string name, double price)
+    {
+        this.name = name;
+        this.price = price;
+        System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+        this.description = $"Для товара {name} описание не задано";
+        this.code = new Random().Next(1000, 9999);
+    }
+
+    public void ChangeDescription(string newDescription)
+    {
+        if (newDescription.Length >= 20 && newDescription.Length <= 200)
+        {
+            description = newDescription;
+            Console.WriteLine("Описание успешно изменено.");
+        }
+        else
+        {
+            Console.WriteLine("Описание должно содержать от 20 до 200 символов.");
+        }
+    }
+
+    public void PrintInfo()
+    {
+        Console.WriteLine($"Название: {name}");
+        Console.WriteLine($"Описание: {description}");
+        Console.WriteLine($"Цена: {price}");
+        Console.WriteLine($"Артикул: {code}");
+        Console.WriteLine();
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Goods[] goodsArray = new Goods[5];
+        goodsArray[0] = new Goods("Товар1", 100);
+        goodsArray[1] = new Goods("Товар2", 50);
+        goodsArray[2] = new Goods("Товар3", 200);
+        goodsArray[3] = new Goods("Товар4", 150);
+        goodsArray[4] = new Goods("Товар5", 120);
+
+        ChangeDescriptions(goodsArray);
+
+
+        for (int i = 0; i < goodsArray.Length - 1; i++)
+        {
+            for (int j = 0; j < goodsArray.Length - 1 - i; j++)
+            {
+                if (goodsArray[j].price > goodsArray[j + 1].price)
+                {
+                    var temp = goodsArray[j];
+                    goodsArray[j] = goodsArray[j + 1];
+                    goodsArray[j + 1] = temp;
+                }
+            }
+        }
+
+        PrintGoodsTable(goodsArray);
+    }
+
+    static void ChangeDescriptions(Goods[] goods)
+    {
+        goods[1].ChangeDescription("новое описание для Товара2");
+        goods[3].ChangeDescription("новое описание для Товара4");
+    }
+
+    static void PrintGoodsTable(Goods[] goods)
+    {
+        Console.WriteLine("Название\tОписание\tЦена\tАртикул");
+        foreach (var good in goods)
+        {
+            Console.WriteLine($"{good.name}\t{good.description}\t{good.price}\t{good.code}");
+        }
+    }
+}
+
+Задание 2
+using System;
+
+abstract class Goods
+{
+    public string Name ;
+    public string Description; 
+    public double Price ;
+    public int Code; 
+
+    public Goods(string name, double price)
+    {
+        Name = name;
+        Price = price;
+        System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Description = $"Для товара {name} описание не задано";
+        Code = new Random().Next(1000, 9999);
+    }
+
+    public void ChangeDescription(string newDescription)
+    {
+        if (newDescription.Length >= 20 && newDescription.Length <= 200)
+        {
+            Description = newDescription;
+            Console.WriteLine("Описание успешно изменено.");
+        }
+        else
+        {
+            Console.WriteLine("Описание должно содержать от 20 до 200 символов.");
+        }
+    }
+
+    public abstract string GetInfo();
+}
+
+class Beverage : Goods
+{
+    public double SugarConcentration; 
+
+    public Beverage(string name, double price, double sugarConcentration) : base(name, price)
+    {
+        SugarConcentration = sugarConcentration;
+        if (sugarConcentration > 5)
+        {
+            Price *= 1.1; 
+        }
+    }
+
+    public override string GetInfo()
+    {
+        return $"{Name,-15} {Description,-30} {Price,-10} {Code,-10} {SugarConcentration}%";
+    }
+}
+
+class Food : Goods
+{
+    public int Exp;
+
+    public Food(string name, double price, int exp) : base(name, price)
+    {
+        Exp = exp;
+        if (exp < 30)
+        {
+            Price *= 1.05; 
+        }
+    }
+
+    public override string GetInfo()
+    {
+        return $"{Name,-15} {Description,-30} {Price,-10} {Code,-10} {Exp} days";
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Goods[] goodsArray = new Goods[5];
+        goodsArray[0] = new Beverage("Напиток1", 100, 3);
+        goodsArray[1] = new Beverage("Напиток2", 50, 6);
+        goodsArray[2] = new Food("Продукт1", 200, 25);
+        goodsArray[3] = new Food("Продукт2", 150, 20);
+        goodsArray[4] = new Food("Продукт3", 120, 10);
+
+        ChangeDescriptions(goodsArray);
+        BubbleSort(goodsArray);
+        PrintGoods(goodsArray);
+    }
+
+    static void ChangeDescriptions(Goods[] goods)
+    {
+        goods[1].ChangeDescription(" новое описание для Напитка2");
+        goods[3].ChangeDescription(" новое описание для Продукта2");
+    }
+
+    static void BubbleSort(Goods[] goods)
+    {
+        for (int i = 0; i < goods.Length - 1; i++)
+        {
+            for (int j = 0; j < goods.Length - 1 - i; j++)
+            {
+                if (goods[j].Price > goods[j + 1].Price)
+                {
+                    Goods temp = goods[j];
+                    goods[j] = goods[j + 1];
+                    goods[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    static void PrintGoods(Goods[] goods)
+    {
+        Console.WriteLine("{0,-15} {1,-30} {2,-10} {3,-10} {4}", "Название", "Описание", "Цена", "Артикул", "Дополнительно");
+        foreach (var good in goods)
+        {
+            Console.WriteLine(good.GetInfo());
+        }
+    }
+}
