@@ -21,20 +21,16 @@
 //{
 //    protected string dist;
 //    protected Sportsman[] sportsmen;
-//    protected static double[] indexx;
+//    protected double[] indexx;
 
-//    public static double[] Indexx
-//    {
-//        get => indexx;
-//        set => indexx = value;
-//    }
-//    public JumpWater(Sportsman[] sportsmen, string dist)
+//    public JumpWater(Sportsman[] sportsmen, string dist, double[] indexx)
 //    {
 //        this.sportsmen = sportsmen;
 //        this.dist = dist;
+//        this.indexx = indexx;
 //    }
 
-//    protected static double RezultForPerson(int[,] list)
+//    protected double RezultForPerson(int[,] list)
 //    {
 //        for (int number = 0; number < 4; number++)
 //        {
@@ -67,7 +63,7 @@
 //        return s;
 //    }
 
-//    protected static Sportsman[] Sort(Sportsman[] list)
+//    protected Sportsman[] Sort(Sportsman[] list)
 //    {
 //        for (int i = 0; i < list.Length; i++)
 //        {
@@ -88,12 +84,12 @@
 //        Print_table(list_sort);
 //    }
 
-//    protected virtual void Print_table(Sportsman[] sort_list);
+//    protected abstract void Print_table(Sportsman[] sort_list);
 //}
 
 //class Jump3 : JumpWater
 //{
-//    public Jump3(string dist, Sportsman[] sportsmen) : base(sportsmen, dist)
+//    public Jump3(string dist, Sportsman[] sportsmen, double[] indexx) : base(sportsmen, dist, indexx)
 //    {
 //        this.sportsmen = sportsmen;
 //        this.dist = dist;
@@ -115,25 +111,12 @@
 
 //class Jump5 : JumpWater
 //{
-//    public Jump5(string dist, Sportsman[] sportsmen) : base(sportsmen, dist)
+//    public Jump5(string dist, Sportsman[] sportsmen, double[] indexx) : base(sportsmen, dist, indexx)
 //    {
 //        this.sportsmen = sportsmen;
 //        this.dist = dist;
 //        Sorevnovan(sportsmen);
 //    }
-//    protected override void Print_table(Sportsman[] sort_list)
-//    {
-//        Console.WriteLine(dist);
-//        for (int i = 0; i < sort_list.Length; i++)
-//        {
-//            Console.Write($"{i + 1} место:");
-//            Console.Write($"имя: {sort_list[i].Name} результат: {RezultForPerson(sort_list[i].Golosa)}");
-//            Console.WriteLine();
-//        }
-//        Console.WriteLine();
-//    }
-
-//
 //    protected override void Print_table(Sportsman[] sort_list)
 //    {
 //        Console.WriteLine(dist);
@@ -156,10 +139,10 @@
 //        int n = int.Parse(Console.ReadLine());
 //        Sportsman[] peoplelist = new Sportsman[n];
 
-//        JumpWater.Indexx = new double[4];
+//        double[] Indexx = new double[4];
 //        for (int i = 0; i < 4; i++)
 //        {
-//            JumpWater.Indexx[i] = double.Parse(Console.ReadLine());
+//            Indexx[i] = double.Parse(Console.ReadLine());
 //        }
 
 //        for (int i = 0; i < n; i++) //каждый спортсмен
@@ -178,16 +161,16 @@
 //            peoplelist[i] = person;
 //        }
 
-//        Jump3 Sorev = new Jump3(dist, peoplelist);
+//        Jump3 Sorev = new Jump3(dist, peoplelist, Indexx);
 
 //        string dist2 = Console.ReadLine();
 //        int n2 = int.Parse(Console.ReadLine());
 //        Sportsman[] peoplelist2 = new Sportsman[n2];
 
-//        JumpWater.Indexx = new double[4];
+//        double[] Indexx2 = new double[4];
 //        for (int i = 0; i < 4; i++)
 //        {
-//            JumpWater.Indexx[i] = double.Parse(Console.ReadLine());
+//            Indexx2[i] = double.Parse(Console.ReadLine());
 //        }
 
 //        for (int i = 0; i < n2; i++) //каждый спортсмен
@@ -206,7 +189,7 @@
 //            peoplelist2[i] = person;
 //        }
 
-//        Jump5 Sorev2 = new Jump5(dist, peoplelist);
+//        Jump5 Sorev2 = new Jump5(dist2, peoplelist2, Indexx2);
 
 //    }
 //}
