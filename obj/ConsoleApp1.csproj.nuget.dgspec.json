@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADM\\Desktop\\2sem\\ConsoleApp1.csproj": {}
+    "C:\\Users\\ADM\\Desktop\\2sem2\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADM\\Desktop\\2sem\\ConsoleApp1.csproj": {
+    "C:\\Users\\ADM\\Desktop\\2sem2\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADM\\Desktop\\2sem\\ConsoleApp1.csproj",
+        "projectUniqueName": "C:\\Users\\ADM\\Desktop\\2sem2\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "C:\\Users\\ADM\\Desktop\\2sem\\ConsoleApp1.csproj",
+        "projectPath": "C:\\Users\\ADM\\Desktop\\2sem2\\ConsoleApp1.csproj",
         "packagesPath": "C:\\Users\\ADM\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADM\\Desktop\\2sem\\obj\\",
+        "outputPath": "C:\\Users\\ADM\\Desktop\\2sem2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ADM\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -50,24 +50,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.10, 3.1.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.32, 3.1.32]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
