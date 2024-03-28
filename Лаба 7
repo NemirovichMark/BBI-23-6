@@ -1,0 +1,263 @@
+Лабораторная работа 7
+Уровень 1 номер 2
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+abstract class Race
+{
+    public abstract double Distance { get; }
+    public abstract string RaceType { get; }
+    public List<Runner> Runners { get; } = new List<Runner>();
+
+    public void AddRunner(string surname, string group, string teacherSurname, double result)
+    {
+        Runners.Add(new Runner(surname, group, teacherSurname, result));
+    }
+
+    public void PrintResults()
+    {
+        Console.WriteLine($"Результаты {RaceType}:");
+        foreach (var runner in Runners.OrderBy(runner => runner.Result))
+        {
+            runner.PrintInfo();
+        }
+
+        int passedNorm = Runners.Count(runner => runner.Result <= 10);
+        Console.WriteLine($"\nОбщее количество участников, выполнивших норматив: {passedNorm}");
+    }
+}
+
+class Race100m : Race
+{
+    public override double Distance => 100;
+    public override string RaceType => "забег на 100м";
+}
+
+class Race500m : Race
+{
+    public override double Distance => 500;
+    public override string RaceType => "забег на 500м";
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+        Race race100m = new Race100m();
+        race100m.AddRunner("Махаури", "Группа 1", "Тренер Морозова", 12);
+        race100m.AddRunner("Галямова", "Группа 2", "Тренера Немирович", 11);
+
+        Race race500m = new Race500m();
+        race500m.AddRunner("Смирнова", "Группа 4", "Тренер Казанцев", 10);
+        race500m.AddRunner("Молокова", "Группа 3", "Тренер Песьяков", 9);
+
+        race100m.PrintResults();
+        Console.WriteLine();
+        race500m.PrintResults();
+    }
+}
+
+struct Runner
+{
+    public string Surname { get; }
+    public string Group { get; }
+    public string TeacherSurname { get; }
+    public double Result { get; }
+
+    public Runner(string surname, string group, string teacherSurname, double result)
+    {
+        Surname = surname;
+        Group = group;
+        TeacherSurname = teacherSurname;
+        Result = result;
+    }
+
+    public void PrintInfo()
+    {
+        Console.WriteLine($"{Surname}\t\t{Group}\t\t{TeacherSurname}\t\t{Result:F2}\t\t{(Result <= 10 ? "Выполнен" : "Не выполнен")}");
+    }
+}
+
+Уровень 2 номер 8
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public abstract class Player
+{
+    private string _name;
+
+    public Player(string name)
+    {
+        _name = name;
+    }
+
+    public string GetName()
+    {
+        return _name;
+    }
+
+    public abstract void AddPenalty();
+
+    public abstract bool IsExcluded();
+}
+
+public class HockeyPlayer : Player
+{
+    private int _totalPenaltyTime;
+
+    public HockeyPlayer(string name, int totalPenaltyTime) : base(name)
+    {
+        _totalPenaltyTime = totalPenaltyTime;
+    }
+
+    public override void AddPenalty()
+    {
+        _totalPenaltyTime++;
+    }
+
+    public override bool IsExcluded()
+    {
+        return _totalPenaltyTime >= 4;
+    }
+
+    public int GetTotalPenaltyTime()
+    {
+        return _totalPenaltyTime;
+    }
+}
+
+public class BasketballPlayer : Player
+{
+    private int _totalFouls;
+
+    public BasketballPlayer(string name, int totalFouls) : base(name)
+    {
+        _totalFouls = totalFouls;
+    }
+
+    public override void AddPenalty()
+    {
+        _totalFouls++;
+    }
+
+    public override bool IsExcluded()
+    {
+        return _totalFouls >= 4;
+    }
+
+    public int GetTotalFouls()
+    {
+        return _totalFouls;
+    }
+}
+
+public class Program
+{
+    static void Main()
+    {
+        List<Player> players = new List<Player>
+        {
+            new HockeyPlayer("Player1", 0),
+            new HockeyPlayer("Player2", 3),
+            new BasketballPlayer("Player3", 2),
+            new BasketballPlayer("Player4", 4),
+            new BasketballPlayer("Player5", 1)
+        };
+
+        foreach (var player in players)
+        {
+            player.AddPenalty();
+        }
+
+        var candidates = players.Where(p => !p.IsExcluded()).ToList();
+                 System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+        Console.WriteLine("Кандидаты в сборную:");
+        foreach (var candidate in candidates)
+        {
+            if (candidate is HockeyPlayer hockeyPlayer)
+            {
+                Console.WriteLine($"{hockeyPlayer.GetName()} - Штрафное время: {hockeyPlayer.GetTotalPenaltyTime()} мин");
+            }
+            else if (candidate is BasketballPlayer basketballPlayer)
+            {
+                Console.WriteLine($"{basketballPlayer.GetName()} - Количество фолов: {basketballPlayer.GetTotalFouls()}");
+            }
+        }
+    }
+}
+
+Уровень 3 номер 5
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public abstract class FootballTeam
+{
+    public string Name { get; set; }
+    public int GoalsScored { get; set; }
+    public int GoalsConceded { get; set; }
+
+    public abstract int CalculatePoints();
+}
+
+public class WomenFootballTeam : FootballTeam
+{
+    public override int CalculatePoints()
+    {
+        if (GoalsScored > GoalsConceded)
+            return 3;
+        else if (GoalsScored == GoalsConceded)
+            return 1;
+        else
+            return 0;
+    }
+}
+
+public class MenFootballTeam : FootballTeam
+{
+    public override int CalculatePoints()
+    {
+        if (GoalsScored > GoalsConceded)
+            return 3;
+        else if (GoalsScored == GoalsConceded)
+            return 1;
+        else
+            return 0;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        List<FootballTeam> teams = new List<FootballTeam>
+        {
+            new WomenFootballTeam { Name = "ЦСКА", GoalsScored = 5, GoalsConceded = 2 },
+            new MenFootballTeam { Name = "Динамо", GoalsScored = 4, GoalsConceded = 3 },
+            new MenFootballTeam { Name = "Спартак", GoalsScored = 3, GoalsConceded = 5 }
+        };
+
+        teams.Sort((x, y) =>
+        {
+            int pointsComparison = y.CalculatePoints().CompareTo(x.CalculatePoints());
+            if (pointsComparison != 0)
+                return pointsComparison;
+
+            return x.Name.CompareTo(y.Name);
+        });
+
+        int rank = 1;
+        foreach (var team in teams)
+        {
+            System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+            string gender = team is WomenFootballTeam ? "женская команда" : "мужская команда";
+            Console.WriteLine($"{rank}. {team.Name} - {gender} {team.CalculatePoints()} баллов");
+            rank++;
+        }
+    }
+}
